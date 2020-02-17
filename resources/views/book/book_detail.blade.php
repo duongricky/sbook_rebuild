@@ -445,6 +445,11 @@
                                                 </a>
                                             @endif
                                         </div>
+                                        <div class="quick-view">
+                                            <a class="action-view" href="#" data-target="#productModal{{ $book->id }}" data-toggle="modal" title="Quick View">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>
                                         <div class="product-details text-center">
                                             <div class="product-rating">
                                                 <div class="book-info">
@@ -509,6 +514,9 @@
                                     </div>
                                 @endfor
                             </div>
+                            @for ($i = 3; $i < $relatedBooks->count(); $i++)
+                                @include('layout.section.modal')
+                            @endfor
                         @endif
                     </div>
                 </div>

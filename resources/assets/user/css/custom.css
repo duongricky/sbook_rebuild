@@ -466,8 +466,8 @@ ul.list-unstyled.social-list i {
 
 .owl-carousel .owl-item img.primary, img.primary {
     display: block;
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
     overflow: hidden;
     max-width: inherit;
     position: absolute;
@@ -658,7 +658,7 @@ img.logo {
 }
 
 .product-img a img {
-    width: auto;
+    width: 100%;
 }
 
 .product-rating img {
