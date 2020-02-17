@@ -69,6 +69,7 @@ class UserController extends Controller
                 'ownerBooks',
                 'followers',
                 'followings',
+                'favorites',
             ]);
             $id = Auth::id();
             $phone = 0;
@@ -96,8 +97,12 @@ class UserController extends Controller
             ->load([
                 'books',
             ]);
-        $books = $user->books()->where('type', $status)->with(['owners', 'medias'])
-            ->paginate(config('view.paginate.book_profile'), ['*'], $status);
+        if ($status === config('view.request.favorite')) {
+            $books = $user->favorites();
+        } else {
+            $books = $user->books()->where('type', $status);
+        }
+        $books = $books->with(['owners', 'medias'])->paginate(config('view.paginate.book_profile'), ['*'], $status);
 
         return view('layout.section.profile_books', compact('books', 'status'));
     }

@@ -112,6 +112,7 @@
                             <li><a id="borrow" href="#returned" data-toggle="tab">{{ trans('settings.profile.returned') }}</a></li>
                             <li><a id="borrow" href="#followings" data-toggle="tab">{{ trans('settings.profile.following') }}</a></li>
                             <li><a id="borrow" href="#followers" data-toggle="tab">{{ trans('settings.profile.followers') }}</a></li>
+                            <li><a id="borrow" href="#favorite" data-toggle="tab">{{ trans('settings.profile.favorite') }}</a></li>
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -125,6 +126,7 @@
                         <div class="tab-pane" id="followings" value="agree"></div>
                         <div class="tab-pane" id="followers" value="agree"></div>
                         <div class="tab-pane active" id="bio" value="agree">
+                        <div class="tab-pane" id="favorite" value="true"></div>
                             <div class="row">
                                 <h3 class="col-md-10">{{ trans('settings.profile.bioTitle') }}</h3>
                                 <div class="col-md-10 col-md-offset-1" id="bio">

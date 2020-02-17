@@ -81,6 +81,7 @@ return [
         'cancel' => 'cancel',
         'approve' => 1,
         'dismiss' => 0,
+        'favorite' => 'favorite',
     ],
 
     'limit' => [
