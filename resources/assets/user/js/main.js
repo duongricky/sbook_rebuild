@@ -924,10 +924,55 @@
         })
     });
 
+    $('#edit-bio').click(function () {
+       $('#form-bio').toggle(config.FIVEHUNDRESS);
+    });
+
+    $('#submit-bio').click(function() {
+        var text = $('#input-bio').val();
+        const url = $(this).attr('data-url');
+        $.ajax({
+            url,
+            method: 'POST',
+            data: { bio: text },
+            beforeSend: function () {
+                $('.loader').show();
+            },
+            success: function (res) {
+                if (res.status) {
+                    $('#text-bio').html(text);
+                    $('#input-bio').html(text);
+                    messagePopup(res.msg, 'success', 'success');
+                } else {
+                    messagePopup(res.msg, 'warning', 'warning');
+                }
+            },
+            error: function(xhr, status, error) {
+                var response = JSON.parse(xhr.responseText);
+                if (xhr.status === config.STATUS.CLIENT.PAYMENT_REQ) {
+                    messagePopup(response.errors.bio[0], 'error', 'error');
+                    $('.loader').hide();
+                }
+            }
+        }).done(function () {
+            $('#form-bio').css('display', 'none');
+            $('.loader').hide();
+        });
+    });
+
 })(jQuery);
 
     submitForms = function() {
         document.forms['header-search'].submit();
 
         return true;
+    }
+    
+    function messagePopup(text, type, icon, button = false) {
+        swal({
+            text: text,
+            type: type,
+            icon: icon,
+            button: button
+        });
     }

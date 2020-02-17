@@ -177,7 +177,9 @@ return [
         'code' => 'Mã nhân viên',
         'position' => 'Vị trí',
         'workspace' => 'Nơi làm việc',
-        'email' => 'Email:'
+        'email' => 'Email:',
+        'bio' => 'Giới thiệu',
+        'bioTitle' => 'Giới thiệu bản thân :',
     ],
 
     'req' => 'Yêu cầu',
