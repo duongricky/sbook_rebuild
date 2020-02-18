@@ -99,7 +99,7 @@ class Book extends Model
         return $this->bookmetas()->where('key', '<>', 'count_review');
     }
 
-    public function favorite_users()
+    public function favoriteUsers()
     {
         return $this->belongsToMany(User::class, 'favorites')
             ->withTimestamps();
