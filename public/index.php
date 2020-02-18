@@ -1,4 +1,3 @@
-<?php // gkc_hash_code : 01DP5WJ402FRFG6A3SKB7N4WJX ?>
 <?php
 
 /**
