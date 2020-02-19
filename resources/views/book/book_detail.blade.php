@@ -225,6 +225,10 @@
                                             @endif
                                         </div>
                                         <div class="product-social-links">
+                                            <div class="product-addto-links">
+                                                <a href="#"><i class="fa fa-heart"></i></a>
+                                                <a id="chartUserEvaluationBt" data-toggle="modal" href="#chartUserEvaluationModel"><i class="fa fa-pie-chart"></i></a>
+                                            </div>
                                             <div class="product-addto-links-text">
                                                 <p class="more hideContent">{!! strip_tags(($book->description)) !!}</p>
                                             </div>
@@ -515,6 +519,34 @@
             </div>
         </div>
     </div>
+
+    {{-- chartUserEvaluationModel --}}
+    <div class="modal animated zoomIn faster" id="chartUserEvaluationModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                    <h4 class="modal-title">{{ trans('settings.modal.statistic_book') }}</h4>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-lg-4 pb-25">
+                        <select id="yearFilterSelect" class="form-control" data-bookId="{{ $book->id }}">
+                            @foreach ($filterYears as $year)
+                                <option value="{{ $year }}" @if ($year == now()->year) selected @endif>{{ $year }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-lg-12 p-0">
+                        <div class="chart" id="userEvaluationchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end chartUserEvaluationModel --}}
 
     <div class="modal animated zoomIn faster" id="borrowingModal">
         <div class="modal-dialog">

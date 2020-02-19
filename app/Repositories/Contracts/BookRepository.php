@@ -13,4 +13,8 @@ interface BookRepository extends AbstractRepository
     public function update($id, $userId, $data = []);
 
     public function destroy($id);
+
+    public function getYearsFilterArray($book);
+
+    public function getStatisticBook($id, $year);
 }
