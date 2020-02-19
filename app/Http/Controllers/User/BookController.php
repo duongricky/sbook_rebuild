@@ -186,6 +186,7 @@ class BookController extends Controller
 
             if (!empty($book)) {
                 $slugId = $book->slug . '-' . $book->id;
+                $filterYears = $this->book->getYearsFilterArray($book);
                 if ($slug == $slugId) {
                     if ($book->categories) {
                         $relatedBookIds = $this->bookCategory->getBooks($book->categories->pluck('id'));
@@ -246,6 +247,7 @@ class BookController extends Controller
                         'tmp',
                         'bookStatus',
                         'bookTypeStatus',
+                        'filterYears',
                     ];
 
                     return view('book.book_detail', compact($data));
@@ -353,5 +355,16 @@ class BookController extends Controller
         }
 
         return view('layout.section.user_list', compact('data', 'type', 'followingIds'));
+    }
+
+    public function statisticBook(Request $request, $id)
+    {
+        $year = $request->year;
+        if (!$year) {
+            $year = now()->year;
+        }
+        $statisticBook = $this->book->getStatisticBook($id, $year);
+
+        return response()->json($statisticBook);
     }
 }

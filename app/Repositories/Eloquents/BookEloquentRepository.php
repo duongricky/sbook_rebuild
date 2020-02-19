@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Eloquent\Bookmeta;
 use App\Eloquent\Owner;
 use App\Eloquent\User;
+use App\Eloquent\Review;
 use App\Eloquent\Office;
 use Illuminate\Support\Facades\DB;
 
@@ -360,5 +361,42 @@ class BookEloquentRepository extends AbstractEloquentRepository implements BookR
         $take = config('view.taking_numb.latest_book');
 
         return $this->getDatas($with, [], $this->onlyAttributes, $attribute, $take);
+    }
+
+    public function getYearsFilterArray($book)
+    {
+        $years = [];
+        $nowYear = now()->year;
+        $createdYear = Carbon::createFromFormat('Y-m-d H:i:s', $book->created_at)->year;
+        $years[] = $createdYear;
+
+        $i = 1;
+        while ($createdYear + $i <= $nowYear) {
+            $years[] = $createdYear + $i;
+            $i++;
+        }
+
+        return $years;
+    }
+
+    public function getStatisticBook($id, $year)
+    {
+        $months = trans('settings.statisticMonths');
+        $reviews = ['Reviews'];
+        for ($month = 1; $month <= 12; $month++) {
+            $reviewsCount = Review::where('book_id', $id)
+                ->whereYear('created_at', $year)
+                ->whereMonth('created_at', $month)
+                ->count();
+            $reviews[$month] = $reviewsCount;
+        }
+        $data = [
+            'label_x' => trans('settings.bookStatisticChart.labelX'),
+            'label_y' => trans('settings.bookStatisticChart.labelY'),
+            'months' => $months,
+            'reviews' => $reviews
+        ];
+
+        return $data;
     }
 }

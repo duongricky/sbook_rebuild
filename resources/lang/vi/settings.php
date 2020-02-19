@@ -138,6 +138,7 @@ return [
 
     'modal' => [
         'borrow_book' => 'Mượn sách',
+        'statistic_book' => 'Thống kê review sách',
         'btn_cancel' => 'Hủy bỏ',
         'btn_close' => 'Đóng',
         'btn_submit' => 'Gửi',
@@ -281,5 +282,24 @@ return [
         'reading' => ' đã chấp nhận cho mượn sách: ',
         'prompt' => 'bạn sẽ phải trả sách sớm',
         'cancel' => ' từ chối cho bạn mượn sách: ',
+    ],
+
+    'statisticMonths' => [
+        0 => 'Tháng 1',
+        1 => 'Tháng 2',
+        2 => 'Tháng 3',
+        3 => 'Tháng 4',
+        4 => 'Tháng 5',
+        5 => 'Tháng 6',
+        6 => 'Tháng 7',
+        7 => 'Tháng 8',
+        8 => 'Tháng 9',
+        9 => 'Tháng 10',
+        10 => 'Tháng 11',
+        11 => 'Tháng 12',
+    ],
+    'bookStatisticChart' => [
+        'labelY' => 'Lượt',
+        'labelX' => 'Tháng',
     ],
 ];

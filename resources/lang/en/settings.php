@@ -138,6 +138,7 @@ return [
 
     'modal' => [
         'borrow_book' => 'Borrowing book',
+        'statistic_book' => 'Book reviews statistic',
         'btn_cancel' => 'Cancel',
         'btn_close' => 'Close',
         'btn_submit' => 'Submit',
@@ -282,5 +283,24 @@ return [
         'reading' => ' Has approve request to borrow: ',
         'prompt' => 'You will be returned book soon',
         'cancel' => ' Has refuse request borrow: ',
+    ],
+
+    'statisticMonths' => [
+        0 => 'January',
+        1 => 'February',
+        2 => 'March',
+        3 => 'April',
+        4 => 'May',
+        5 => 'June',
+        6 => 'July',
+        7 => 'August',
+        8 => 'September',
+        9 => 'October',
+        10 => 'November',
+        11 => 'December',
+    ],
+    'bookStatisticChart' => [
+        'labelY' => 'Review',
+        'labelX' => 'Month'
     ],
 ];
