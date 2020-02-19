@@ -1,0 +1,21 @@
+{
+  "name": "sbook",
+  "description": "",
+  "main": "",
+  "authors": [
+    "nghiem.tien.tuan <nghiem.tien.tuan@sun-asterisk.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tuannt-0910/sbook_rebuild",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "admin-assets": "https://github.com/tuannt-0910/admin_asset.git"
+  }
+}

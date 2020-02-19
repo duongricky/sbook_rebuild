@@ -23,18 +23,44 @@
 
         @include('admin.layout.style')
     </head>
-    <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+    <body>
+        <!-- Main navbar -->
+        @include('admin.layout.navbar')
+        <!-- /main navbar -->
 
-        <div class="m-grid m-grid--hor m-grid--root m-page">
-            @include('admin.layout.header')
-            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
-                <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
-                    <i class="la la-close"></i>
-                </button>
+        <!-- Page container -->
+        <div class="page-container">
+            <!-- Page content -->
+            <div class="page-content">
+                <!-- Main sidebar -->
                 @include('admin.layout.sidebar')
-                @yield('content')
+                <!-- /main sidebar -->
+
+                <!-- Main content -->
+                <div class="content-wrapper">
+                    <div class="page-header mt-15 mb-15">
+                        <div class="breadcrumb-line breadcrumb-line-component">
+                            <ul class="breadcrumb">
+                                @yield('progress_bar')
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Content area -->
+                    <div class="content">
+                        @yield('content')
+
+                        <!-- Footer -->
+                        @include('admin.layout.footer')
+                        <!-- /footer -->
+                    </div>
+                    <!-- /content area -->
+                </div>
+                <!-- /main content -->
             </div>
+            <!-- /page content -->
         </div>
+        <!-- /page container -->
 
         <!-- begin::Scroll Top -->
         <div id="m_scroll_top" class="m-scroll-top">

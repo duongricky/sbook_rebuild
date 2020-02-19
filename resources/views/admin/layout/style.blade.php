@@ -1,5 +1,2 @@
-<link rel="shortcut icon" href="{{ asset('assets/img/fbook.png') }}" />
-{{ Html::style('admin_asset/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}
-{{ Html::style('admin_asset/assets/vendors/base/vendors.bundle.css') }}
-{{ Html::style('admin_asset/assets/demo/default/base/style.bundle.css') }}
-{{ Html::style('assets/admin/css/custom.css') }}
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+{{ Html::style(asset(mix('assets/admin/css/app.css'))) }}

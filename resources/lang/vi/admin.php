@@ -1,17 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
     'success' => 'Thành công!',
     'error' => 'Error!',
     'submit' => 'Gửi',
@@ -29,6 +18,14 @@ return [
     'errSku' => 'Sku dài tối thiểu 5 ký tự!',
     'errImg' => 'Ảnh bìa phải thuộc một trong các định dạng sau: jpg, jpeg, png, gif, bmp.',
     'noImg' => 'Không có hình ảnh!',
+    'navbar' => [
+        'online' => 'Hoạt động',
+        'view_client' => 'Xem giao diện',
+        'my_profile' => 'Trang của tôi',
+        'messages' => 'Tin nhắn',
+        'account_settings' => 'Cài đặt tài khoản',
+        'logout' => 'Đăng xuất',
+    ],
     'user' => [
         'name' => 'Tài khoản',
         'email' => 'Email',
@@ -36,8 +33,13 @@ return [
         'password' => 'Mật khẩu',
         'repass' => 'Nhập lại mật khẩu',
         'position' => 'Vị trí',
+        'user' => 'Thành viên',
+        'listUser' => 'Danh sách',
+        'newUser' => 'Thêm thành viên mới',
+        'editUser' => 'Chỉnh sửa thành viên',
     ],
     'sidebar' => [
+        'main' => 'Trang chính',
         'dashboard' => 'Trang quản trị',
         'book' => 'Sách',
         'newBook' => 'Thêm mới',
@@ -54,6 +56,18 @@ return [
         'user' => 'Thành viên',
         'newUser' => 'Thêm mới',
         'listUser' => 'Danh sách',
+        'reputation' => 'Reputation',
+        'list_reputation' => 'Danh sách Reputation',
+        'add_reputation' => 'Thêm mới Reputation',
+        'menu' => 'Menu',
+        'top_menu' => 'Trên',
+        'down_menu' => 'Dưới',
+        'tag' => 'Tag',
+        'list_tag' => 'Danh sách tag',
+        'add_tag' => 'Thêm mới tag',
+    ],
+    'footer' => [
+        'by' => 'By Sun-asterisk - Talent Development Office - Vietnam Education Unit - All rights reserved.',
     ],
     'book' => [
         'book' => 'Sách',
@@ -102,12 +116,6 @@ return [
             'address' => 'Nhập địa chỉ văn phòng...'
         ],
         'wsm_workspace_id' => 'WSM Workspace id',
-    ],
-    'user' => [
-        'user' => 'Thành viên',
-        'listUser' => 'Danh sách',
-        'newUser' => 'Thêm thành viên mới',
-        'editUser' => 'Chỉnh sửa thành viên',
     ],
     'edit' => 'Sửa',
     'delete' => 'Xóa',
