@@ -177,7 +177,9 @@ return [
         'code' => 'Employee code',
         'position' => 'Position',
         'workspace' => 'Workspace',
-        'email' => 'Email:'
+        'email' => 'Email:',
+        'bio' => 'Bio',
+        'bioTitle' => 'introduction',
     ],
 
     'req' => 'Request',

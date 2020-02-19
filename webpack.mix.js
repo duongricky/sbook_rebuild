@@ -45,3 +45,4 @@ mix.copy('resources/assets/js/notify.js', 'public/assets/js/notify.js');
 mix.copyDirectory('resources/assets/admin', 'public/assets/admin');
 mix.copyDirectory('resources/assets/img', 'public/assets/img');
 mix.copyDirectory('resources/assets/img/user', 'public/storage/img/user');
+mix.copy('resources/assets/js/config.js', 'public/assets/js/config.js');

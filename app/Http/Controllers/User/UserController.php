@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Requests\BioRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\OwnerRepository;
@@ -386,6 +387,25 @@ class UserController extends Controller
             return $id;
         } catch (Exception $e) {
             return $e->getMessage();
+        }
+    }
+
+    public function updateBio(BioRequest $request, $id)
+    {
+        if (Auth::id() !== (int)$id) {
+            return response()->json([
+                'status' => false,
+                'msg' => trans('page.errBio'),
+            ]);
+        } else {
+            Auth::user()->update([
+                'bio' => $request->bio,
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'msg' => trans('page.succBio'),
+            ]);
         }
     }
 }

@@ -9,6 +9,9 @@ return [
     'search' => 'Nhập vào từ khóa...',
     'dashboard' => 'Quản trị Fbook',
     'noOwner' => 'Bạn không thể mượn sách của mình',
+    'errBio'=> 'Bạn không thể cập nhận giới thiệu này',
+    'succBio'=> 'Cập nhật giới thiệu thành công',
+    'maxBio' => 'Giới thiệu không quá 2500 kí tự',
     'book' => [
         'add' => 'Thêm sách',
         'edit' => 'Chỉnh sửa sách',

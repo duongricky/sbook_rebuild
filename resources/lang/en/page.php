@@ -9,6 +9,9 @@ return [
     'dashboard' => 'Fbook Dashboard',
     'search' => 'Enter your keyword here...',
     'noOwner' => 'You can not borrow your books',
+    'errBio'=> 'You can\'t not update this bio',
+    'succBio'=> 'Update bio successfully',
+    'maxBio' => 'Bio isn\'t too long 2500 characters',
     'book' => [
         'add' => 'Add Your Book',
         'edit' => 'Edit Your Book',
