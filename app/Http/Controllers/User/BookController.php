@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Repositories\Eloquents\UserEloquentRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
@@ -40,6 +41,8 @@ class BookController extends Controller
 
     protected $notification;
 
+    protected $user;
+
     protected $with = [
         'medias',
         'categories',
@@ -57,7 +60,8 @@ class BookController extends Controller
         OfficeRepository $office,
         BookmetaRepository $bookmeta,
         BookUserRepository $bookUser,
-        NotificationRepository $notification
+        NotificationRepository $notification,
+        UserEloquentRepository $user
     ) {
         $this->book = $book;
         $this->category = $category;
@@ -69,6 +73,7 @@ class BookController extends Controller
         $this->bookmeta = $bookmeta;
         $this->bookUser = $bookUser;
         $this->notification = $notification;
+        $this->user = $user;
         $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update']]);
         $this->middleware('viewed.book', ['only' => ['create']]);
     }
@@ -153,7 +158,6 @@ class BookController extends Controller
                 }
             }
             \Cache::put('latestBook', $this->book->setCache(['created_at', 'desc']), 1440);
-            
             Session::flash('success', trans('settings.success.store'));
 
             return redirect()->route('books.show', $book->slug . '-' . $book->id);
@@ -220,6 +224,7 @@ class BookController extends Controller
 
                     $tmp = false;
                     if (Auth::check()) {
+                        $likedBook = $this->user->likedBook(Auth::user(), $book->id);
                         $roles = Auth::user()->roles;
                         if ($roles->count() > 0) {
                             if ($roles->count() > 1) {
@@ -232,6 +237,8 @@ class BookController extends Controller
                                 $tmp = true;
                             }
                         }
+                    } else {
+                        $likedBook = false;
                     }
 
                     $bookTypeStatus = $this->bookUser->getTypeBook($book->id);
@@ -248,6 +255,7 @@ class BookController extends Controller
                         'bookStatus',
                         'bookTypeStatus',
                         'filterYears',
+                        'likedBook',
                     ];
 
                     return view('book.book_detail', compact($data));
@@ -366,5 +374,18 @@ class BookController extends Controller
         $statisticBook = $this->book->getStatisticBook($id, $year);
 
         return response()->json($statisticBook);
+
+    }
+
+    public function addFavorite(Request $request, $id)
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $result = $this->user->addFavoriteBook($user->id, $id);
+        } else {
+            $result = false;
+        }
+
+        return response()->json(['status' => $result]);
     }
 }

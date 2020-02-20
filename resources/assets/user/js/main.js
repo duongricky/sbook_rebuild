@@ -488,6 +488,9 @@
         if ($(e).attr('value') == 'true') {
             $.ajax({
                 url: '/my-profile/' + status + '/' + $('#userId').val(),
+                beforeSend: function() {
+                    $('.loader').show();
+                },
                 method:'POST',
             })
             .done(function(res) {
@@ -503,6 +506,7 @@
                     });
                 });
                 $('.book-status#' + status + '0').show();
+                $('.loader').hide();
             })
             .fail(function() {
                 //
@@ -792,7 +796,7 @@
             });
         });
     }
-    
+
     $(document).on('submit', '#returning-book', function(e) {
         e.preventDefault();
         var obj = $('.btn-returning');
@@ -905,6 +909,15 @@
         })
         .done(function(res) {
             $(status).html(res);
+            var star = $('.rating');
+            star.each(function () {
+                var rating = $(this).data('rating');
+                $(this).barrating({
+                    theme: 'fontawesome-stars-o',
+                    initialRating: rating,
+                    readonly: true,
+                });
+            });
         })
         .fail(function() {
                 //
@@ -934,7 +947,7 @@
         $.ajax({
             url,
             method: 'POST',
-            data: { bio: text },
+            data: {bio: text},
             beforeSend: function () {
                 $('.loader').show();
             },
@@ -947,7 +960,7 @@
                     messagePopup(res.msg, 'warning', 'warning');
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 var response = JSON.parse(xhr.responseText);
                 if (xhr.status === config.STATUS.CLIENT.PAYMENT_REQ) {
                     messagePopup(response.errors.bio[0], 'error', 'error');
@@ -960,6 +973,26 @@
         });
     });
 
+    $(document).ready(function () {
+        $('.vote-book').click(function (e) {
+            e.preventDefault();
+            const id = $(this).attr('data-id');
+            const url = $(this).attr('data-url');
+            $.ajax({
+                url,
+                method: 'POST',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.status) {
+                        $('.fa-heart').addClass('text-danger');
+                    } else {
+                        $('.fa-heart').removeClass('text-danger');
+                    }
+                }
+            });
+        });
+    });
+
 })(jQuery);
 
     submitForms = function() {
@@ -967,7 +1000,7 @@
 
         return true;
     }
-    
+
     function messagePopup(text, type, icon, button = false) {
         swal({
             text: text,

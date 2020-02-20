@@ -14,6 +14,7 @@
         {{ Html::script('assets/js/vendor/modernizr-2.8.3.min.js') }}
     </head>
     <body>
+        <div class="loader"></div>
         @include('layout.header')
             @section('header')
                 @show

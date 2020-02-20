@@ -67,4 +67,28 @@ class UserEloquentRepository extends AbstractEloquentRepository implements UserR
             ->where($data)
             ->get();
     }
+
+    public function likedBook($user, $book_id)
+    {
+        $liked = $user->favorites()
+            ->wherePivot('book_id', $book_id)
+            ->count();
+
+        return $liked;
+    }
+
+    public function addFavoriteBook($id, $book_id)
+    {
+        $user = $this->model()->findOrFail($id);
+        $liked = $this->likedBook($user, $book_id);
+        if ($liked === 0) {
+            $user->favorites()->attach($book_id);
+            $status = true;
+        } else {
+            $user->favorites()->detach($book_id);
+            $status = false;
+        }
+
+        return $status;
+    }
 }

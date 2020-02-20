@@ -226,8 +226,17 @@
                                         </div>
                                         <div class="product-social-links">
                                             <div class="product-addto-links">
-                                                <a href="#"><i class="fa fa-heart"></i></a>
-                                                <a id="chartUserEvaluationBt" data-toggle="modal" href="#chartUserEvaluationModel"><i class="fa fa-pie-chart"></i></a>
+                                                @if (Auth::check())
+                                                    <a href="#"
+                                                       class="vote-book"
+                                                       data-id="{{ $book->id }}"
+                                                       data-url="{{ route('add-favorite', $book->id) }}"
+                                                    >
+                                                        <i class="fa fa-heart {{ $likedBook ? 'text-danger' : '' }}" id="favorite-icon-{{ $book->id }}"></i>
+                                                    </a>
+                                                @endif
+                                                 <a id="chartUserEvaluationBt" data-toggle="modal" href="#chartUserEvaluationModel"><i class="fa fa-pie-chart"></i></a>
+                                                 <a href="#"><i class="fa fa-envelope-o"></i></a>
                                             </div>
                                             <div class="product-addto-links-text">
                                                 <p class="more hideContent">{!! strip_tags(($book->description)) !!}</p>

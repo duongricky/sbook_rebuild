@@ -30,6 +30,7 @@ Route::group(['middleware' => 'locale'], function () {
         Route::get('books/category/{slug}', 'BookController@getBookCategory')->name('book.category');
         Route::get('books/office/{slug}', 'BookController@getBookOffice')->name('book.office');
         Route::post('/books/{slug}', 'BookController@getDetailData');
+        Route::post('/add-favorite/{id}', 'BookController@addFavorite')->name('add-favorite');
 
         Route::group(['middleware' => 'auth'], function () {
             Route::resource('/books/{slug}/review', 'ReviewBookController');

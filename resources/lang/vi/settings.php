@@ -181,6 +181,7 @@ return [
         'email' => 'Email:',
         'bio' => 'Giới thiệu',
         'bioTitle' => 'Giới thiệu bản thân :',
+        'favorite' => 'Sách yêu thích',
     ],
 
     'req' => 'Yêu cầu',

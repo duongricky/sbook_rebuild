@@ -181,6 +181,7 @@ return [
         'email' => 'Email:',
         'bio' => 'Bio',
         'bioTitle' => 'introduction',
+        'favorite' => 'Favorite books',
     ],
 
     'req' => 'Request',
