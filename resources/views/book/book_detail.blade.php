@@ -401,7 +401,10 @@
                                                 @endif
                                                 <div class="most-product-content top-interesting">
                                                     <h4>
-                                                        <a href="{{ route('books.show', ['id' => $topBorrowed[$i]->slug . '-' . $topBorrowed[$i]->id]) }}">{{ $topBorrowed[$i]->title }}</a>
+                                                        <a href="{{ route('books.show', ['id' => $topBorrowed[$i]->slug . '-' . $topBorrowed[$i]->id]) }}"
+                                                            title="{{ $topBorrowed[$i]->title }}">
+                                                            {{ $topBorrowed[$i]->title }}
+                                                        </a>
                                                     </h4>
                                                     <div class="product-rating">
                                                         {!! Form::select('rating',
@@ -453,7 +456,10 @@
                                             <div class="product-rating">
                                                 <div class="book-info">
                                                     <h4 class="title-book">
-                                                        <a href="{{ route('books.show', ['id' => $relatedBooks[$i]->slug . '-' . $relatedBooks[$i]->id]) }}">{{ $relatedBooks[$i]->title }}</a>
+                                                        <a href="{{ route('books.show', ['id' => $relatedBooks[$i]->slug . '-' . $relatedBooks[$i]->id]) }}"
+                                                            title="{{ $relatedBooks[$i]->title }}">
+                                                            {{ $relatedBooks[$i]->title }}
+                                                        </a>
                                                     </h4>
                                                 </div>
                                                 <div class="avg_star">
