@@ -1,17 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
     'success' => 'Success!',
     'error' => 'Error!',
     'submit' => 'Submit',
@@ -29,6 +18,14 @@ return [
     'errSku' => 'Sku must be min 5 characters!',
     'errImg' => 'The avatar must be a file of type: jpg, jpeg, png, gif, bmp!',
     'noImg' => 'No Image!',
+    'navbar' => [
+        'online' => 'Online',
+        'view_client' => 'View Client',
+        'my_profile' => 'My Profile',
+        'messages' => 'Messages',
+        'account_settings' => 'Account Setting',
+        'logout' => 'Logout',
+    ],
     'user' => [
         'name' => 'User name',
         'email' => 'Email',
@@ -36,8 +33,13 @@ return [
         'password' => 'Password',
         'repass' => 'RePassword',
         'position' => 'Position',
+        'user' => 'User',
+        'listUser' => 'List User',
+        'newUser' => 'Add New User',
+        'editUser' => 'Edit User',
     ],
     'sidebar' => [
+        'main' => 'main',
         'dashboard' => 'Dashboard',
         'book' => 'Book',
         'newBook' => 'New Book',
@@ -54,6 +56,18 @@ return [
         'user' => 'Users',
         'newUser' => 'Add new User',
         'listUser' => 'List Users',
+        'reputation' => 'Reputation',
+        'list_reputation' => 'List Reputation',
+        'add_reputation' => 'Add new Reputation',
+        'menu' => 'Menu',
+        'top_menu' => 'Top',
+        'down_menu' => 'Down',
+        'tag' => 'Tag',
+        'list_tag' => 'List tag',
+        'add_tag' => 'Add new tag',
+    ],
+    'footer' => [
+        'by' => 'By Sun-asterisk - Talent Development Office - Vietnam Education Unit - All rights reserved.',
     ],
     'book' => [
         'book' => 'Book',
@@ -102,12 +116,6 @@ return [
             'address' => 'Address in here...',
         ],
         'wsm_workspace_id' => 'WSM Workspace id',
-    ],
-    'user' => [
-        'user' => 'User',
-        'listUser' => 'List User',
-        'newUser' => 'Add New User',
-        'editUser' => 'Edit User',
     ],
     'edit' => 'Edit',
     'delete' => 'Delete',
