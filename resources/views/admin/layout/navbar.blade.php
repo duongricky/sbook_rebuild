@@ -57,7 +57,12 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li><a href="#"><i class="icon-user-plus"></i> {{ trans('admin.navbar.my_profile') }}</a></li>
                     <li><a href="#"><i class="icon-cog5"></i> {{ trans('admin.navbar.account_settings') }}</a></li>
-                    <li><a href="#"><i class="icon-switch2"></i> {{ trans('admin.navbar.logout') }}</a></li>
+                    <li>
+                        <form action="{{ route('admin.logout') }}" method="POST">
+                            @csrf
+                            <button class="btn btn-link pl-15"><i class="icon-switch2 pr-10"></i> {{ trans('admin.navbar.logout') }}</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>

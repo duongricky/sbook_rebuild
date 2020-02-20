@@ -38,6 +38,12 @@ return [
         'newUser' => 'Thêm thành viên mới',
         'editUser' => 'Chỉnh sửa thành viên',
     ],
+    'admin_login' => [
+        'login_account' => 'Đăng nhập quản trị',
+        'email' => 'Email',
+        'password' => 'Mật khẩu',
+        'sign_in' => 'Đăng nhập',
+    ],
     'sidebar' => [
         'main' => 'Trang chính',
         'dashboard' => 'Trang quản trị',
@@ -173,5 +179,8 @@ return [
     'validate' => [
         'book_notExists' => 'Quyển sách này đã bị xóa hoặc không tồn tại',
         'regex' => 'Vui lòng nhập đúng định dạng',
+    ],
+    'validation' => [
+        'login_admin_error' => 'Login không thành công',
     ],
 ];

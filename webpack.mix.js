@@ -38,7 +38,7 @@ mix.styles([
     'node_modules/chosen-jquery/lib/chosen.min.css',
     'node_modules/animate.css/animate.min.css',
     'node_modules/jquery-bar-rating/dist/themes/fontawesome-stars-o.css',
-    'resources/assets/css/app.css'
+    'resources/assets/css/app.css',
 ], 'public/assets/user/css/app.css');
 mix.copyDirectory('resources/assets/user', 'public/assets/user').browserSync('http://127.0.0.1:8000/');
 mix.copyDirectory('resources/assets/fonts', 'public/assets/user/fonts');

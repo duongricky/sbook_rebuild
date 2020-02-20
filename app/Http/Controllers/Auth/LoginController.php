@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AdminUserLoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Fauth;
 use Illuminate\Http\Request;
@@ -84,5 +85,27 @@ class LoginController extends Controller
                 return redirect()->back();
             }
         }
+    }
+
+    public function getLoginAdmin()
+    {
+        return view('admin.admin_login');
+    }
+
+    public function postLoginAdmin(AdminUserLoginRequest $request)
+    {
+        $data = $request->only(['email', 'password']);
+        if ($request->email == config('settings.user.admin.email') && auth()->attempt($data)) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->back()->withErrors([trans('admin.validation.login_admin_error')]);
+        }
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->route('home');
     }
 }
