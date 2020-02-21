@@ -12,8 +12,8 @@
                             <li><a class="active">{{ trans('settings.book.detail_book') }}</a></li>
                             @if ($tmp)
                                 <li>
-                                    <a href="{{ route('book.edit', $book->id) }}" class="btn btn-info mb-4">
-                                        {{ __('settings.book.edit') }}
+                                    <a href="{{ route('admin.books.edit', $book->id) }}" class="btn btn-info mb-4">
+                                        {{ trans('settings.book.edit') }}
                                     </a>
                                 </li>
                             @endif
@@ -58,13 +58,13 @@
                                                         @endforeach
                                                     </div>
                                                 @else
-                                                    <span class="text-danger no_onwer">{{ __('settings.modal.no_owners') }}</span>
+                                                    <span class="text-danger no_onwer">{{ trans('settings.modal.no_owners') }}</span>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="product-reviews-summary lh-35">
                                             <div class="product-rating-book">
-                                                <span class="rate"><b>{{ __('settings.review.rating') . ':' }}</b></span>
+                                                <span class="rate"><b>{{ trans('settings.review.rating') . ':' }}</b></span>
                                                 {!! Form::select('rating',
                                                    [
                                                         '' => '',
@@ -82,18 +82,18 @@
                                                 !!}
                                             </div>
                                             <div class="reviews-actions-book">
-                                                <b>{{ __('settings.default.totalReview') . ': ' }}</b>
+                                                <b>{{ trans('settings.default.totalReview') . ': ' }}</b>
                                                 <a href="#review" id="review">
-                                                    {{ count($book->reviews) . ' ' . (count($book->reviews) <= 1 ? __('settings.book.review') : __('settings.default.reviews')) }}
+                                                    {{ count($book->reviews) . ' ' . (count($book->reviews) <= 1 ? trans('settings.book.review') : trans('settings.default.reviews')) }}
                                                 </a>
                                             </div>
                                             <div class="view-sku">
                                                 <div class="reviews-actions-book">
-                                                    <b>{{ __('settings.book.view') }}</b>
+                                                    <b>{{ trans('settings.book.view') }}</b>
                                                     <span>{{ $book->count_viewed ? $book->count_viewed : '0' }}</span>
                                                 </div>
                                                 <div class="reviews-actions-book">
-                                                    <b>{{ __('settings.book.sku') }}</b>
+                                                    <b>{{ trans('settings.book.sku') }}</b>
                                                     <span>{{ $book->sku ? $book->sku : '0' }}</span>
                                                 </div>
                                             </div>
@@ -135,12 +135,12 @@
                                                         @endif
                                                     @endfor
                                                 @else
-                                                    <span>{{ __('settings.book.no_category') }}</span>
+                                                    <span>{{ trans('settings.book.no_category') }}</span>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="list-item">
-                                            <h4>{{ count($bookTypeStatus) > 0 ? __('settings.book.list_borrow') : '' }}</h4>
+                                            <h4>{{ count($bookTypeStatus) > 0 ? trans('settings.book.list_borrow') : '' }}</h4>
                                         </div>
                                         <div class="row">
                                             @foreach ($bookTypeStatus as $item)
@@ -148,15 +148,15 @@
                                                     <div class="product-reviews-summary pt-0">
                                                         <div class="rating-summary">
                                                             <p class="mb-0">
-                                                                <b>{{ __('settings.book.userBorrow') }}</b>
-                                                                <b class="mb-0 text-danger">{{ $item['userBorrow'] ? $item['userBorrow'] : __('settings.book.availble') }}</b>
+                                                                <b>{{ trans('settings.book.userBorrow') }}</b>
+                                                                <b class="mb-0 text-danger">{{ $item['userBorrow'] ? $item['userBorrow'] : trans('settings.book.availble') }}</b>
                                                             </p>
                                                             <p class="mb-0">
-                                                                <b>{{ $item ? __('settings.book.dateReturn') : '' }}</b>
-                                                                <span class="mb-0">{{ !is_null($item['dateReturn']) ? $item['dateReturn'] : __('settings.book.not_date') }}</span>
+                                                                <b>{{ $item ? trans('settings.book.dateReturn') : '' }}</b>
+                                                                <span class="mb-0">{{ !is_null($item['dateReturn']) ? $item['dateReturn'] : trans('settings.book.not_date') }}</span>
                                                             </p>
                                                             <p class="mb-0">
-                                                                <b>{{ $item['owner'] ? __('settings.book.owners') : '' }}</b>
+                                                                <b>{{ $item['owner'] ? trans('settings.book.owners') : '' }}</b>
                                                                 <span class="mb-0">{{ isset($item['owner']) ? $item['owner'] : '' }}</span>
                                                             </p>
                                                         </div>
@@ -242,7 +242,7 @@
                                                 <p class="more hideContent">{!! strip_tags(($book->description)) !!}</p>
                                             </div>
                                             <div class="more-link">
-                                                <a href="#">{{ __('page.book.show') }}</a>
+                                                <a href="#">{{ trans('page.book.show') }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +341,7 @@
                                                                     </div>
                                                                     <a href="{{ route('review.show', [$book->slug . '-' . $book->id, $review->id]) }}" class="view_more {{ Auth::check() ? '' : 'login' }}">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                        {{ __('settings.review.viewMore') }}
+                                                                        {{ trans('settings.review.viewMore') }}
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -351,20 +351,20 @@
                                                 {{ $reviews->appends(Request::all())->links() }}
                                             @else
                                                 <div class="alert alert-info">
-                                                    {{ __('page.reviews.noReview') }}
+                                                    {{ trans('page.reviews.noReview') }}
                                                 </div>
                                             @endif
                                             @if ($flag == true)
                                                 <div class="button">
                                                     <a href="{{ route('review.create', $book->slug . '-' . $book->id) }}"
-                                                       class="btn btn-primary">{{ __('settings.review.add') }}</a>
+                                                       class="btn btn-primary">{{ trans('settings.review.add') }}</a>
                                                 </div>
                                             @endif
                                             @if (!Auth::check())
                                                 <div class="alert alert-success">
-                                                    {{ __('page.reviews.sign') }}
+                                                    {{ trans('page.reviews.sign') }}
                                                     <b><a class="nav-link"
-                                                          href="{{ route('login') }}">{{ __('Login') }}</a></b>
+                                                          href="{{ route('login') }}">{{ trans('Login') }}</a></b>
                                                 </div>
                                             @endif
                                         </div>
@@ -445,7 +445,7 @@
                     <div class="new-book-area mt-60">
                         @if (isset($relatedBooks) && $relatedBooks->count() >= 3)
                             <div class="section-title text-center mb-30 text-uppercase">
-                                <h3>{{ __('page.book.upsell') }}</h3>
+                                <h3>{{ trans('page.book.upsell') }}</h3>
                             </div>
                             <div class="tab-active-2 owl-carousel">
                                 @for ($i = 3; $i < $relatedBooks->count(); $i++)
@@ -609,14 +609,14 @@
                                 @elseif ($owner->id == Auth::id() && $book->owners->count() == 1)
                                     @php $status = 0; @endphp
                                     <div class="alert alert-info text-center mb-4" role="alert">
-                                        <p class="no-owner">{{ __('page.noOwner') }}</p>
+                                        <p class="no-owner">{{ trans('page.noOwner') }}</p>
                                     </div>
                                 @endif
                             @endforeach
                         @else
                             @php $status = 0; @endphp
                             <div class="alert alert-info text-center mb-4" role="alert">
-                                <p class="no-owner">{{ __('page.noOwner') }}</p>
+                                <p class="no-owner">{{ trans('page.noOwner') }}</p>
                             </div>
                         @endif
                     </div>
@@ -664,7 +664,7 @@
                     ]) !!}
                 <div class="modal-body row">
                     <div class="owner-input">
-                        <p>{{ __('settings.book.sure') }}</p>
+                        <p>{{ trans('settings.book.sure') }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">

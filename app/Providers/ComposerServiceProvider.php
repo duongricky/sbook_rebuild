@@ -18,6 +18,10 @@ class ComposerServiceProvider extends ServiceProvider
             ['layout.footer', 'index', 'admin.setting.option'],
             'App\Http\ViewComposers\ProfileComposer'
         );
+        view()->composer(
+            'admin.layout.main',
+            'App\Http\ViewComposers\TranslationComposer'
+        );
     }
 
     /**
