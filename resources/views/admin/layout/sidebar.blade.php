@@ -27,15 +27,7 @@
                         <a href="{{ route('admin.books.index') }}"><i class="fas fa-book"></i> <span>{{ trans('admin.sidebar.book') }}</span></a>
                     </li>
                     <li class="">
-                        <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.category') }}</span></a>
-                        <ul>
-                            <li class="">
-                                <a href="{{ route('admin.category.index') }}">{{ trans('admin.sidebar.listCate') }}</a>
-                            </li>
-                            <li class="">
-                                <a href="{{ route('admin.category.create') }}">{{ trans('admin.sidebar.newCate') }}</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('admin.category.index') }}"><i class="fas fa-list"></i> <span>{{ trans('admin.sidebar.category') }}</span></a>
                     </li>
                     <li class="">
                         <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.office') }}</span></a>

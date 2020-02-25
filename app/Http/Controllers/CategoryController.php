@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryRequest;
 use App\Repositories\Contracts\CategoryRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
+use Yajra\Datatables\DataTables;
 use Exception;
 use Session;
 
@@ -25,6 +27,17 @@ class CategoryController extends Controller
         return view('admin.category.list', compact('categories'));
     }
 
+    public function ajaxIndex()
+    {
+        try {
+            $categories = $this->category->getData([], [], ['id', 'name', 'slug', 'description']);
+
+            return DataTables::of($categories)->make(true);
+        } catch (Exception $e) {
+            return view('admin.error.error');
+        }
+    }
+
     public function create()
     {
         return view('admin.category.add');
@@ -32,22 +45,26 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {
+        $slug = str_slug($request->name);
+        $request->merge(['slug' => $slug]);
         try {
-            $slug = str_slug($request->name);
-            $request->merge(['slug' => $slug]);
             $this->category->store($request->all());
-
-            return redirect()->route('category.index')->with('success', __('admin.success'));
-        } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
-
-            return view('admin.error.error');
+        } catch (Exception $exception) {
+            return redirect()->route('admin.category.index')->withErrors([$exception->getMessage()]);
         }
+
+        return redirect()->route('admin.category.index')->with('success', trans('admin.success'));
     }
 
     public function show($id)
     {
-        //
+        try {
+            $category = $this->category->find($id);
+
+            return response()->json($category);
+        } catch (Exception $exception) {
+            return response()->json(false);
+        }
     }
 
     public function edit($id)
@@ -69,24 +86,23 @@ class CategoryController extends Controller
             $request->merge(['slug' => $slug]);
             $category->update($request->all());
 
-            return redirect()->route('category.index')->with('success', __('admin.success'));
-        } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
-
-            return view('admin.error.error');
+        } catch (Exception $exception) {
+            return redirect()->route('admin.category.index')->withErrors([$exception->getMessage()]);
         }
+
+        return redirect()->route('admin.category.index')->with('success', trans('admin.success'));
     }
 
     public function destroy($id)
     {
         try {
-            $this->category->delete($id);
+            $category = $this->category->find($id);
+            //remove books
+            $category->books()->detach();
 
-            return back()->with('success', __('admin.success'));
+            return response()->json(true);
         } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
-            
-            return view('admin.error.error');
+            return response()->json(false);
         }
     }
 }

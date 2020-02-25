@@ -14,6 +14,9 @@
             <div class="col-md-6 text-right mb-15">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#book_create_model"><i class="fas fa-plus"></i> {{ trans('admin.book.book_detail.add') }}</button>
             </div>
+            <div class="col-md-12">
+                @include('admin.layout.notification')
+            </div>
         </div>
 
         @include('admin.layout.notification')
