@@ -180,6 +180,7 @@ class BookController extends Controller
     {
         try {
             $book = $this->book->find($id);
+            $book->bookmetas()->delete();
             //remote category
             $book->categories()->detach();
             //remove image

@@ -26,6 +26,12 @@ return [
         'account_settings' => 'Account Setting',
         'logout' => 'Logout',
     ],
+    'admin_login' => [
+        'login_account' => 'Login to your account',
+        'email' => 'Email',
+        'password' => 'Password',
+        'sign_in' => 'Sign in',
+    ],
     'user' => [
         'name' => 'User name',
         'email' => 'Email',
@@ -173,5 +179,8 @@ return [
     'validate' => [
         'book_notExists' => 'This book has been deleted or does not exist',
         'regex' => 'Please enter a valid',
+    ],
+    'validation' => [
+        'login_admin_error' => 'Login unsuccessfully',
     ],
 ];

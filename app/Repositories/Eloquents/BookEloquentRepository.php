@@ -140,6 +140,9 @@ class BookEloquentRepository extends AbstractEloquentRepository implements BookR
             $bookmeta = app(Bookmeta::class)->where('key', 'count_review')
             ->orderBy('value', 'desc')
             ->take($take)
+            ->whereHas('book', function ($query) {
+                $query->where('deleted_at', null);
+            })
             ->with($with)
             ->get();
             $books = [];

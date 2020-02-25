@@ -62,6 +62,13 @@ Route::group(['middleware' => 'locale'], function () {
         });
     });
 
+    Route::group(['namespace' => 'Auth'], function () {
+        Route::get('admin/login', 'LoginController@getLoginAdmin')->name('admin.getLoginAdmin');
+        Route::post('admin/login', 'LoginController@postLoginAdmin')->name('admin.postLoginAdmin');
+
+        Route::post('admin/logout', 'LoginController@logout')->name('admin.logout');
+    });
+
     Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::get('listbook', 'BookController@ajaxShow')->name('book.show');
         Route::resource('books', 'BookController')->except(['create']);
