@@ -172,6 +172,7 @@ return [
         'yes_delete' => 'Đúng, Xoá nó!',
         'title_success' => 'Thành công',
         'are_you_sure' => 'Bạn có chắc chắn?',
+        'confirmBookCount' => 'Nếu xóa thẻ này, :count sách sẽ mất thẻ này, bạn chắc muốn xóa',
     ],
     'option' => [
         'text' => 'Chữ Trang Chủ',
@@ -193,6 +194,13 @@ return [
         'phoneHome' => '(Số điện thoại công ty)',
         'gmailHome' => '(Gmail công ty)',
         'addressHome' => '(Địa chỉ công ty)',
+    ],
+    'tag' => [
+        'new' => 'Tạo mới thẻ',
+        'update' => 'Cập nhật thẻ',
+        'list' => 'Danh sách thẻ',
+        'createBtn' => 'Tạo mới',
+        'updateBtn' => 'Cập nhật',
     ],
     'validate' => [
         'book_notExists' => 'Quyển sách này đã bị xóa hoặc không tồn tại',

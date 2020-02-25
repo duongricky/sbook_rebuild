@@ -6,9 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $fiilable = [
+    protected $fillable = [
         'name',
     ];
+
+    protected static function boot (){
+        parent::boot();
+
+        static::deleting ( function ($tag) {
+            $tag->books()->detach();
+        });
+    }
 
     public function books()
     {
