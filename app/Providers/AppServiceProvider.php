@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Builder;
 use App\Eloquent\User;
 use App\Eloquent\Notification;
 use App\Eloquent\Office;
@@ -17,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Builder::defaultStringLength(191);
+
         view()->composer('layout.header', function ($view) {
             if (Auth::check()) {
                 $view->with('roles', User::getRoles(Auth::id()));
