@@ -8,7 +8,7 @@ interface BookCategoryRepository extends AbstractRepository
 {
     public function getData($data = [], $with = [], $dataSelect = ['*']);
     
-    public function store($data = []);
+    public function storeBookCate($book_id, $data = []);
 
     public function find($id);
 }

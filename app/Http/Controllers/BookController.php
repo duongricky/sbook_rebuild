@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Response;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookRequest;
+use App\Http\Requests\Admin\BookRequest;
 use App\Repositories\Contracts\BookRepository;
 use App\Repositories\Contracts\CategoryRepository;
 use App\Repositories\Contracts\MediaRepository;
 use App\Repositories\Contracts\BookCategoryRepository;
+use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\DataTables;
-use App\Eloquent\Book;
-use Symfony\Component\Routing\Annotation\Route;
 use Exception;
 use Auth;
 use App\Repositories\Contracts\OwnerRepository;
@@ -25,6 +25,8 @@ class BookController extends Controller
     protected $bookCategory;
 
     protected $owner;
+
+    protected $category;
 
     public function __construct(
         BookRepository $book,
@@ -42,7 +44,9 @@ class BookController extends Controller
 
     public function index()
     {
-        return view('admin.book.list');
+        $categories = $this->category->getData();
+
+        return view('admin.book.list', compact('categories'));
     }
 
     public function ajaxShow()
@@ -64,31 +68,47 @@ class BookController extends Controller
         }
     }
 
-    public function create()
+    public function show($id)
     {
         try {
-            $categories = $this->category->getData();
+            $book = $this->book->find($id);
 
-            return view('admin.book.add', compact('categories'));
-        } catch (Exception $e) {
-            return view('admin.error.error');
+            return response()->json($book);
+        } catch (Exception $exception) {
+            return response()->json(false);
         }
+    }
+
+    public function create()
+    {
+
     }
 
     public function store(BookRequest $request)
     {
+        $slug = str_slug($request->title);
+        $request->merge(['slug' => $slug]);
+        $request->merge(['category' => $request->categories]);
+        $data = $request->only([
+            'title',
+            'description',
+            'author',
+            'categories',
+            'category',
+            'publish_date',
+            'total_pages',
+            'slug',
+        ]);
+
+        DB::beginTransaction();
         try {
-            //save book
-            $slug = str_slug($request->title);
-            $request->merge(['slug' => $slug]);
-            $book = $this->book->store($request->all());
-            $request->merge(['book_id' => $book->id]);
-            //save category
+            $book = $this->book->store($data);
+
             if ($request->has('category')) {
-                $this->bookCategory->store($request->all());
+                $this->bookCategory->storeBookCate($book->id, $data);
             }
-            //create image
-            $this->media->store($request->all());
+
+            $this->media->addImageBook($book->id, $request->newImages);
 
             $data = [
                 'user_id' => Auth::user()->id,
@@ -96,12 +116,14 @@ class BookController extends Controller
             ];
             $this->owner->store($data);
 
-            return redirect()->route('book.index')->with('success', __('admin.success'));
-        } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
+            DB::commit();
+        } catch (Exception $exception) {
+            DB::rollback();
 
-            return view('admin.error.error');
+            return redirect()->route('admin.books.index')->withErrors([$exception->getMessage()]);
         }
+
+        return redirect()->route('admin.books.index')->with('success', trans('admin.success'));
     }
 
     public function edit($id)
@@ -111,40 +133,47 @@ class BookController extends Controller
             $categories = $this->category->getData();
 
             return view('admin.book.edit', compact('book', 'categories'));
-        } catch (Exception $e) {
-            return view('admin.error.error');
+        } catch (Exception $exception) {
+            return redirect()->route('admin.books.index')->withErrors([trans('admin.validate.book_notExists')]);
         }
     }
 
     public function update(BookRequest $request, $id)
     {
+        $slug = str_slug($request->title);
+        $request->merge(['slug' => $slug]);
+        $request->merge(['category' => $request->categories]);
+        $data = $request->only([
+            'title',
+            'description',
+            'author',
+            'categories',
+            'category',
+            'publish_date',
+            'total_pages',
+            'slug',
+        ]);
+
+        DB::beginTransaction();
         try {
-            //update book
-            $slug = str_slug($request->title);
-            $request->merge(['slug' => $slug]);
-            $book = $this->book->updateBook($id, $request->all());
+            $book = $this->book->updateBook($id, $data);
 
-            $request->merge(['book_id' => $book->id]);
-            $data['book_id'] = $book->id;
-            //save category
+            $book->categories()->detach();
             if ($request->has('category')) {
-                $book->categories()->detach();
-                $data['category'] = $request->category;
-                $this->bookCategory->store($request->all());
-            } else {
-                $book->categories()->detach();
+                $this->bookCategory->storeBookCate($book->id, $data);
             }
-            //delete image if user upload image
-            $this->media->destroy($request->all());
-            // create new image
-            $this->media->store($request->all());
 
-            return redirect()->route('book.index')->with('success', __('admin.success'));
-        } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
+            $this->media->updateAndRemoveOldMedia($book->id, $request->main_image, $request->old_image);
+            $this->media->addImageBook($book->id, $request->newImages);
 
-            return view('admin.error.error');
+            DB::commit();
+        } catch (Exception $exception) {
+            DB::rollback();
+
+            return redirect()->route('admin.books.index')->withErrors([$exception->getMessage()]);
         }
+
+        return redirect()->route('admin.books.index')->with('success', trans('admin.success'));
     }
 
     public function destroy($id)
@@ -157,17 +186,13 @@ class BookController extends Controller
             if (isset($book->medias[0])) {
                 $this->media->destroy($book);
                 $this->book->destroy($id);
-
-                return back()->with('success', __('admin.success'));
             } else {
                 $book->delete();
-
-                return back()->with('success', __('admin.success'));
             }
-        } catch (Exception $e) {
-            Session::flash('unsuccess', trans('settings.unsuccess.error', ['messages' => $e->getMessage()]));
 
-            return view('admin.error.error');
+            return response()->json(true);
+        } catch (Exception $e) {
+            return response()->json(false);
         }
     }
 }

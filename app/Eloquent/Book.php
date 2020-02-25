@@ -66,11 +66,12 @@ class Book extends Model
     public function medias()
     {
         return $this->morphMany(Media::class, 'target')
-            ->orderBy('priority', 'desc')
+            ->orderBy('priority', 'asc')
             ->select([
                 'id',
                 'target_id',
                 'path',
+                'priority',
             ]);
     }
 

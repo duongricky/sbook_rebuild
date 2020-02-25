@@ -11,4 +11,8 @@ interface MediaRepository extends AbstractRepository
     public function store($data = []);
 
     public function find($id);
+
+    public function updateAndRemoveOldMedia($bookId, $mainImage, $oldImages = []);
+
+    public function addImageBook($bookId, $images = []);
 }

@@ -5,4 +5,8 @@ var config = {
         },
     },
     FIVEHUNDRESS: 500,
+    image_paths: {
+        book: '/storage/img/book/',
+    },
+    formatYMD: 'yyyy-mm-dd',
 };

@@ -54,25 +54,27 @@ mix.copy('resources/assets/js/d3/d3.min.js', 'public/assets/js/d3/d3.min.js');
 mix.copy('resources/assets/css/c3/c3.min.css', 'public/assets/css/c3/c3.min.css');
 
 //admin
+mix.autoload({
+    jquery: ['$', 'jQuery', 'window.jQuery'],
+});
 mix.styles([
     'public/bower_components/admin-assets/css/icons/icomoon/styles.css',
     'public/bower_components/admin-assets/css/bootstrap.css',
     'public/bower_components/admin-assets/css/core.css',
     'public/bower_components/admin-assets/css/components.css',
     'public/bower_components/admin-assets/css/colors.css',
+    'public/bower_components/admin-assets/css/datatables/jquery.dataTables.min.css',
+    'resources/assets/css/app.css',
+    'resources/assets/admin/css/app.css',
 ], 'public/assets/admin/css/app.css')
 .js([
-    'public/bower_components/admin-assets/js/core/libraries/jquery.min.js',
     'public/bower_components/admin-assets/js/core/libraries/bootstrap.min.js',
     'public/bower_components/admin-assets/js/plugins/loaders/blockui.min.js',
     'public/bower_components/admin-assets/js/plugins/forms/styling/uniform.min.js',
     'public/bower_components/admin-assets/js/core/app.js',
+    'public/bower_components/admin-assets/js/pages/components_modals.js',
 ], 'public/assets/admin/js/app.js')
 .options({
     processCssUrls: false
-});
-
-mix.autoload({
-    jquery: ['$', 'jQuery', 'window.jQuery'],
 });
 mix.copyDirectory('public/bower_components/admin-assets/css/icons/icomoon/fonts', 'public/assets/admin/css/fonts');

@@ -8,6 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!--begin::Web font -->
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+        @routes()
         <script>
             WebFont.load({
                 google: {
@@ -68,6 +69,9 @@
         </div>
         <!-- end::Scroll Top -->
 
+        <script type='text/javascript'>
+            window.translations = {!! $translations !!}
+        </script>
        @include('admin.layout.script')
     </body>
 </html>

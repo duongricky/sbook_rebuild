@@ -167,6 +167,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         Framgia\Fauth\FAuthServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class
     ],
 
     /*

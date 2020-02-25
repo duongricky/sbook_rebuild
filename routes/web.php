@@ -62,15 +62,15 @@ Route::group(['middleware' => 'locale'], function () {
         });
     });
 
-    Route::prefix('admin')->middleware('admin')->group(function () {
-        Route::get('/listbook', 'BookController@ajaxShow')->name('book.show');
-        Route::resource('/book', 'BookController')->except(['show']);
+    Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+        Route::get('listbook', 'BookController@ajaxShow')->name('book.show');
+        Route::resource('books', 'BookController')->except(['create']);
         Route::resource('/category', 'CategoryController')->except(['show']);
         Route::resource('offices', 'OfficeController')->except(['show']);
         Route::get('/post', 'HomeController@index');
         Route::get('/reputation', 'HomeController@index');
         Route::get('/tag', 'HomeController@index');
-        Route::get('/', 'HomeController@adminIndex');
+        Route::get('/', 'HomeController@adminIndex')->name('dashboard');
         Route::resource('/roles', 'RoleController');
         Route::resource('/offices', 'OfficeController');
         Route::resource('/users', 'UserController');
