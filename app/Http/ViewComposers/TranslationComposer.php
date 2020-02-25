@@ -42,3 +42,4 @@ class TranslationComposer
         $view->with('translations', $this->data);
     }
 }
+

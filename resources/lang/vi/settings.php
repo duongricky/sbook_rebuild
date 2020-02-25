@@ -43,6 +43,10 @@ return [
             'roles' => 'Vai trò',
             'office' => 'Văn phòng',
             'workspace' => 'Địa điểm',
+            'bio' => 'Giới thiệu',
+            'baseInfo' => 'Thông tin cơ bản',
+            'following' => 'Đang theo dõi',
+            'follower' => 'Người theo dõi',
         ],
     ],
 

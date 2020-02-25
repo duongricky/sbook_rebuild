@@ -12,6 +12,7 @@ return [
     'description' => 'Description',
     'action' => 'Action',
     'showBook' => 'Show Book',
+    'close' => 'Close',
     'errTitleBook' => 'Title must be 5 - 191 characters!',
     'errDescriptionBook' => 'Description must be min 20 characters!',
     'errAuthor' => 'Author must be 5 191 characters!',
@@ -149,6 +150,15 @@ return [
     'delete' => 'Delete',
     'view' => 'View',
     'searchPlaceholder' => 'Search records',
+    'textDatatable' => [
+        'sLengthMenu'=> 'Display _MENU_ records',
+        'search'=> 'Search:',
+        'zeroRecords'=> 'Notfound records',
+        'info'=> 'Display _START_ to _END_ of _TOTAL_ records',
+        'infoEmpty'=> 'No empty records',
+        'infoFiltered'=> '(Filter to _MAX_ total records)',
+        'searchPlaceholder'=> 'Search',
+    ],
     'swal' => [
         'no_cancel' => 'No, cancel!',
         'yes_delete' => 'Yes, delete it!',

@@ -43,6 +43,10 @@ return [
             'roles' => 'Roles',
             'office' => 'Office',
             'workspace' => 'Workspace',
+            'bio' => 'Bio',
+            'baseInfo' => 'Base Infomation',
+            'following' => 'Followings',
+            'follower' => 'Followers',
         ],
     ],
 
