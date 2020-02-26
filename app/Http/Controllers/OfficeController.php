@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OfficeRequest;
 use App\Repositories\Contracts\OfficeRepository;
 use App\Eloquent\Office;
+use Yajra\Datatables\DataTables;
 
 class OfficeController extends Controller
 {
@@ -20,6 +21,28 @@ class OfficeController extends Controller
         $offices = $this->office->getData();
 
         return view('admin.offices.list', compact('offices'));
+    }
+
+    public function ajaxIndex()
+    {
+        try {
+            $offices = $this->office->getData([], [], ['id', 'name', 'address', 'description', 'wsm_workspace_id']);
+
+            return DataTables::of($offices)->make(true);
+        } catch (Exception $e) {
+            return view('admin.error.error');
+        }
+    }
+
+    public function show($id)
+    {
+        try {
+            $office = $this->office->findById($id);
+
+            return response()->json($office);
+        } catch (Exception $exception) {
+            return response()->json(false);
+        }
     }
 
     /**
