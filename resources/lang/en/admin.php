@@ -124,13 +124,21 @@ return [
     ],
     'cate' => [
         'cate' => 'Category',
+        'cates' => 'Categories',
         'listCate' => 'List Category',
         'newCate' => 'New Category',
         'editCate' => 'Edit Category',
         'index' => 'Index',
         'name' => 'Name',
+        'description' => 'Description',
         'placeHolder' => [
-            'title' => 'Title in here ...',
+            'name' => 'Title in here ...',
+            'description' => 'Description in here ...',
+        ],
+        'submit' => 'Submit',
+        'close' => 'Close',
+        'swal' => [
+            'booksCount' => 'This category has book currently, are you sure want to delete this?',
         ],
     ],
     'office' => [
@@ -178,6 +186,7 @@ return [
     ],
     'validate' => [
         'book_notExists' => 'This book has been deleted or does not exist',
+        'cate_notExists' => 'This category has been deleted or does not exist',
         'regex' => 'Please enter a valid',
     ],
     'validation' => [

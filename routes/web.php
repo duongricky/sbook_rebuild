@@ -72,7 +72,8 @@ Route::group(['middleware' => 'locale'], function () {
     Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::get('listbook', 'BookController@ajaxShow')->name('book.show');
         Route::resource('books', 'BookController')->except(['create']);
-        Route::resource('/category', 'CategoryController')->except(['show']);
+        Route::resource('/category', 'CategoryController');
+        Route::get('list-category', 'CategoryController@ajaxIndex')->name('category.ajax-index');
         Route::resource('offices', 'OfficeController')->except(['show']);
         Route::get('/post', 'HomeController@index');
         Route::get('/reputation', 'HomeController@index');

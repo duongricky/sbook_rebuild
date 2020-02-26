@@ -124,14 +124,22 @@ return [
     ],
     'cate' => [
         'cate' => 'Danh mục',
+        'cates' => 'Danh sách Danh mục',
         'listCate' => 'Danh sách',
         'newCate' => ' Thêm danh mục mới',
         'editCate' => 'Chỉnh sửa danh mục',
         'index' => 'STT',
         'name' => 'Tên',
+        'description' => 'Mô tả',
         'placeHolder' => [
-            'title' => 'Nhập tên danh mục...',
-        ]
+            'name' => 'Nhập tên danh mục...',
+            'description' => 'Mô tả...',
+        ],
+        'submit' => 'Lưu',
+        'close' => 'Đóng',
+        'swal' => [
+            'booksCount' => 'Danh mục này hiện đang có sách, bạn có chắc muốn xóa nó?',
+        ],
     ],
     'office' => [
         'office' => 'Văn phòng',
@@ -178,6 +186,7 @@ return [
     ],
     'validate' => [
         'book_notExists' => 'Quyển sách này đã bị xóa hoặc không tồn tại',
+        'cate_notExists' => 'Danh mục này đã bị xóa hoặc không tồn tại',
         'regex' => 'Vui lòng nhập đúng định dạng',
     ],
     'validation' => [
