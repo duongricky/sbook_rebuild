@@ -52,7 +52,7 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.user') }}</span></a>
+                        <a href="#"><i class="icon-user"></i> <span>{{ trans('admin.sidebar.user') }}</span></a>
                         <ul>
                             <li class="">
                                 <a href="{{ route('admin.users.index') }}">{{ trans('admin.sidebar.listUser') }}</a>

@@ -11,6 +11,9 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Eloquent\User;
 use Session;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Yajra\DataTables\DataTables;
+use Symfony\Component\HttpFoundation\Response as HTTP;
 
 class UserController extends Controller
 {
@@ -46,8 +49,16 @@ class UserController extends Controller
             'office',
         ];
         $users = $this->repository->getData($with);
+        if (request()->ajax()) {
 
-        return view('admin.user.list', compact('users'));
+            return Datatables::of($users)
+                ->addColumn('action', function ($user) {
+                    return view('admin.layout.user.action', compact('user'));
+                })
+                ->make(true);
+        } else {
+            return view('admin.user.list', compact('users'));
+        }
     }
 
     /**
@@ -98,11 +109,21 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        //
+        if (request()->ajax()) {
+            try {
+                $user = $this->repository->find($id);
+
+                return view('admin.layout.user.detail', compact('user'));
+            } catch (\Exception $e) {
+                return response()->json(['message' => trans('settings.error.404')], HTTP::HTTP_NOT_FOUND);
+            }
+        }
+
+        return redirect()->back();
     }
 
     /**

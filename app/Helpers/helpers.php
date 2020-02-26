@@ -110,3 +110,9 @@ function splitAddressOffice($value)
 
     return $office;
 }
+
+function avatarUser($user) {
+    return $user->avatar
+            ? asset(config('view.image_paths.user') . $user->avatar)
+            : asset(config('view.image_paths.detaultAvatar'));
+}

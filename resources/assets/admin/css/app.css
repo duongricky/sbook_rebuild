@@ -2,3 +2,10 @@
     width: 100%;
     height: auto;
 }
+.opac-1 {
+    opacity: 1;
+}
+
+.w-12 {
+    width: 120px !important;
+}

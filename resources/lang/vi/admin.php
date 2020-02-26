@@ -12,6 +12,7 @@ return [
     'description' => 'Mô tả',
     'action' => 'Hành động',
     'showBook' => 'Xem sách',
+    'close' => 'Đóng',
     'errTitleBook' => 'Tên sách dài tối thiểu 5 - 191 ký tự!',
     'errDescriptionBook' => 'Mô tả phải chứa ít nhất 20 ký tự!',
     'errAuthor' => 'Tên tác giả dài tối thiểu 5 - 191 ký tự!',
@@ -157,6 +158,15 @@ return [
     'delete' => 'Xóa',
     'view' => 'Xem',
     'searchPlaceholder' => 'Search records',
+    'textDatatable' => [
+        'sLengthMenu'=> 'Hiển thị _MENU_ bản ghi',
+        'search'=> 'Tìm kiếm:',
+        'zeroRecords'=> 'Không tìm thấy bản ghi nào',
+        'info'=> 'Hiển thị _START_ tới _END_ của _TOTAL_ bản ghi',
+        'infoEmpty'=> 'Không có bản ghi nào',
+        'infoFiltered'=> '(Lọc từ _MAX_ tổng số bản ghi)',
+        'searchPlaceholder'=> 'Tìm kiếm',
+    ],
     'swal' => [
         'no_cancel' => 'Không hủy nó!',
         'yes_delete' => 'Đúng, Xoá nó!',
