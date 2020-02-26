@@ -30,15 +30,7 @@
                         <a href="{{ route('admin.category.index') }}"><i class="fas fa-list"></i> <span>{{ trans('admin.sidebar.category') }}</span></a>
                     </li>
                     <li class="">
-                        <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.office') }}</span></a>
-                        <ul>
-                            <li class="">
-                                <a href="{{ route('admin.offices.index') }}">{{ trans('admin.sidebar.listOffice') }}</a>
-                            </li>
-                            <li class="">
-                                <a href="{{ route('admin.offices.create') }}">{{ trans('admin.sidebar.newOffice') }}</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('admin.offices.index') }}"><i class="fas fa-building"></i> <span>{{ trans('admin.sidebar.office') }}</span></a>
                     </li>
                     <li class="">
                         <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.post') }}</span></a>

@@ -33,6 +33,11 @@ class OfficeEloquentRepository extends AbstractEloquentRepository implements Off
         return $data;
     }
 
+    public function findById($id)
+    {
+        return $this->model()->findOrFail($id);
+    }
+
     public function store($data = [])
     {
         $this->model()->create($data);

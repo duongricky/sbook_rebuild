@@ -74,13 +74,13 @@ Route::group(['middleware' => 'locale'], function () {
         Route::resource('books', 'BookController')->except(['create']);
         Route::resource('/category', 'CategoryController');
         Route::get('list-category', 'CategoryController@ajaxIndex')->name('category.ajax-index');
-        Route::resource('offices', 'OfficeController')->except(['show']);
         Route::get('/post', 'HomeController@index');
         Route::get('/reputation', 'HomeController@index');
         Route::get('/tag', 'HomeController@index');
         Route::get('/', 'HomeController@adminIndex')->name('dashboard');
         Route::resource('/roles', 'RoleController');
         Route::resource('/offices', 'OfficeController');
+        Route::get('list-offices', 'OfficeController@ajaxIndex')->name('office.ajax-index');
         Route::resource('/users', 'UserController');
         Route::get('/setting', 'SettingController@indexSetting')->name('setting');
         Route::post('/setting/text', 'SettingController@postEditText');

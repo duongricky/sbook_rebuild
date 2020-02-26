@@ -143,15 +143,19 @@ return [
     ],
     'office' => [
         'office' => 'Văn phòng',
+        'offices' => 'Danh sách Văn phòng',
         'listOffice' => 'Danh sách',
         'newOffice' => ' Thêm văn phòng mới',
         'editOffice' => 'Chỉnh sửa văn phòng',
+        'name' => 'Tên',
         'address' => 'Địa chỉ',
+        'description' => 'Mô tả',
         'placeHolder' => [
             'title' => 'Nhập tên văn phòng...',
             'address' => 'Nhập địa chỉ văn phòng...'
         ],
         'wsm_workspace_id' => 'WSM Workspace id',
+        'close' => 'Đóng',
     ],
     'edit' => 'Sửa',
     'delete' => 'Xóa',
@@ -186,6 +190,7 @@ return [
     ],
     'validate' => [
         'book_notExists' => 'Quyển sách này đã bị xóa hoặc không tồn tại',
+        'office_notExists' => 'Văn phòng này đã xóa hoặc không tồn tại',
         'cate_notExists' => 'Danh mục này đã bị xóa hoặc không tồn tại',
         'regex' => 'Vui lòng nhập đúng định dạng',
     ],

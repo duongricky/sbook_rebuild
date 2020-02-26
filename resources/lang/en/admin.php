@@ -143,15 +143,19 @@ return [
     ],
     'office' => [
         'office' => 'Office',
+        'offices' => 'Offices',
         'listOffice' => 'List Office',
         'newOffice' => 'New Office',
         'editOffice' => 'Edit Office',
+        'name' => 'Name',
+        'description' => 'Description',
         'address' => 'Address',
         'placeHolder' => [
             'title' => 'Title in here ...',
             'address' => 'Address in here...',
         ],
         'wsm_workspace_id' => 'WSM Workspace id',
+        'close' => 'Close',
     ],
     'edit' => 'Edit',
     'delete' => 'Delete',
@@ -186,6 +190,7 @@ return [
     ],
     'validate' => [
         'book_notExists' => 'This book has been deleted or does not exist',
+        'office_notExists' => 'This office has been delected or does not exist',
         'cate_notExists' => 'This category has been deleted or does not exist',
         'regex' => 'Please enter a valid',
     ],
