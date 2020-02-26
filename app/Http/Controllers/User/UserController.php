@@ -133,8 +133,8 @@ class UserController extends Controller
                 'key' => 'display_phone',
             ];
             $phones = $this->usermeta->getData($data);
-            if (empty($phones[0]->value)) {
-                $phoneUser = $phones[0]->value;
+            if (count($phones) > 0) {
+                $phoneUser = $phones->first()->value;
             } else {
                 $phoneUser = 1;
             }
