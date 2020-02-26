@@ -82,6 +82,7 @@ Route::group(['middleware' => 'locale'], function () {
         Route::resource('/roles', 'RoleController');
         Route::resource('/offices', 'OfficeController');
         Route::resource('/users', 'UserController');
+        Route::resource('/tags', 'TagController');
         Route::get('/setting', 'SettingController@indexSetting')->name('setting');
         Route::post('/setting/text', 'SettingController@postEditText');
         Route::post('/setting/img', 'SettingController@postEditImg')->name('settingImg');

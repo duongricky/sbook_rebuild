@@ -172,6 +172,7 @@ return [
         'yes_delete' => 'Yes, delete it!',
         'title_success' => 'Success',
         'are_you_sure' => 'Are you sure?',
+        'confirmBookCount' => 'If delete this tag, :count books will lost this tag, Are you sure?',
     ],
     'option' => [
         'text' => 'Tẽt Home',
@@ -193,6 +194,13 @@ return [
         'phoneHome' => '(Phone company)',
         'gmailHome' => '(Gmail company)',
         'addressHome' => '(Address company)',
+    ],
+    'tag' => [
+        'new' => 'Create tag',
+        'update' => 'Update tag',
+        'list' => 'List Tag',
+        'createBtn' => 'Create',
+        'updateBtn' => 'Update',
     ],
     'validate' => [
         'book_notExists' => 'This book has been deleted or does not exist',

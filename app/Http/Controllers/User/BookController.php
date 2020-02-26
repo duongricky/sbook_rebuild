@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Requests\BookRequest;
 use App\Repositories\Eloquents\UserEloquentRepository;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\BookCategoryRepository;
 use App\Repositories\Contracts\BookRepository;

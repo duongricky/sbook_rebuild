@@ -85,13 +85,10 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="#"><i class="icon-stack2"></i> <span>{{ trans('admin.sidebar.tag') }}</span></a>
+                        <a href="#"><i class="fa fa-tags"></i> <span>{{ trans('admin.sidebar.tag') }}</span></a>
                         <ul>
                             <li class="">
-                                <a href="#">{{ trans('admin.sidebar.list_tag') }}</a>
-                            </li>
-                            <li class="">
-                                <a href="#">{{ trans('admin.sidebar.add_tag') }}</a>
+                                <a href="{{ route('admin.tags.index') }}">{{ trans('admin.sidebar.list_tag') }}</a>
                             </li>
                         </ul>
                     </li>
