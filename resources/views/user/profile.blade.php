@@ -126,7 +126,6 @@
                         <div class="tab-pane" id="followings" value="agree"></div>
                         <div class="tab-pane" id="followers" value="agree"></div>
                         <div class="tab-pane active" id="bio" value="agree">
-                        <div class="tab-pane" id="favorite" value="true"></div>
                             <div class="row">
                                 <h3 class="col-md-10">{{ trans('settings.profile.bioTitle') }}</h3>
                                 <div class="col-md-10 col-md-offset-1" id="bio">
@@ -150,6 +149,7 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="tab-pane" id="favorite" value="true"></div>
                     </div>
                 </div>
             </div>
