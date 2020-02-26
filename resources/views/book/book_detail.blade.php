@@ -448,15 +448,15 @@
                                 <h3>{{ trans('page.book.upsell') }}</h3>
                             </div>
                             <div class="tab-active-2 owl-carousel">
-                                @for ($i = 3; $i < $relatedBooks->count(); $i++)
+                                @foreach($relatedBooks as $book)
                                     <div class="product-wrapper">
                                         <div class="product-img">
-                                            @if ($relatedBooks[$i]->medias->count() > 0)
-                                                <a href="{{ route('books.show', $relatedBooks[$i]->slug . '-' . $relatedBooks[$i]->id) }}">
-                                                    <img src="{{ asset(config('view.image_paths.book') . $relatedBooks[$i]->medias[0]->path) }}" alt="book" class="primary"/>
+                                            @if ($book->medias->count() > 0)
+                                                <a href="{{ route('books.show', $book->slug . '-' . $book->id) }}">
+                                                    <img src="{{ asset(config('view.image_paths.book') . $book->medias[0]->path) }}" alt="book" class="primary"/>
                                                 </a>
                                             @else
-                                                <a href="{{ route('books.show', $relatedBooks[$i]->slug . '-' . $relatedBooks[$i]->id) }}">
+                                                <a href="{{ route('books.show', $book->slug . '-' . $book->id) }}">
                                                     <img src="{{ asset(config('view.image_paths.book') . 'default.jpg') }}" alt="woman"/>
                                                 </a>
                                             @endif
@@ -470,9 +470,9 @@
                                             <div class="product-rating">
                                                 <div class="book-info">
                                                     <h4 class="title-book">
-                                                        <a href="{{ route('books.show', ['id' => $relatedBooks[$i]->slug . '-' . $relatedBooks[$i]->id]) }}"
-                                                            title="{{ $relatedBooks[$i]->title }}">
-                                                            {{ $relatedBooks[$i]->title }}
+                                                        <a href="{{ route('books.show', ['id' => $book->slug . '-' . $book->id]) }}"
+                                                            title="{{ $book->title }}">
+                                                            {{ $book->title }}
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -494,12 +494,12 @@
                                                     !!}
                                                 </div>
                                                 <div class="owner-avatar">
-                                                    @php $countOwnerLatest = $relatedBooks[$i]->owners->count() @endphp
+                                                    @php $countOwnerLatest = $book->owners->count() @endphp
                                                     @if ($countOwnerLatest > 3)
                                                         @for ($j = 0; $j < 2; $j++)
-                                                            <div class="owner" id="{{ 'user-' . $relatedBooks[$i]->owners[$j]->id }}">
-                                                                <a href="{{ route('user', $relatedBooks[$i]->owners[$j]->id) }}" title="{{ $relatedBooks[$i]->owners[$j]->name }}">
-                                                                    <img src="{{ $relatedBooks[$i]->owners[$j]->avatar ? $relatedBooks[$i]->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
+                                                            <div class="owner" id="{{ 'user-' . $book->owners[$j]->id }}">
+                                                                <a href="{{ route('user', $book->owners[$j]->id) }}" title="{{ $book->owners[$j]->name }}">
+                                                                    <img src="{{ $book->owners[$j]->avatar ? $book->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
                                                                 </a>
                                                             </div>
                                                         @endfor
@@ -509,20 +509,20 @@
                                                                 <span>{{ $countOwnerLatest - 2 }}</span>
                                                             </a>
                                                             <div class="owner-hover">
-                                                                @for ($j = 0; $j < $relatedBooks[$i]->owners->count(); $j++)
-                                                                    <div class="owner" id="{{ 'user-' . $relatedBooks[$i]->owners[$j]->id }}">
-                                                                        <a href="{{ route('user', $relatedBooks[$i]->owners[$j]->id) }}" title="{{ $relatedBooks[$i]->owners[$j]->name }}">
-                                                                            <img src="{{ $relatedBooks[$i]->owners[$j]->avatar ? $relatedBooks[$i]->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
+                                                                @for ($j = 0; $j < $book->owners->count(); $j++)
+                                                                    <div class="owner" id="{{ 'user-' . $book->owners[$j]->id }}">
+                                                                        <a href="{{ route('user', $book->owners[$j]->id) }}" title="{{ $book->owners[$j]->name }}">
+                                                                            <img src="{{ $book->owners[$j]->avatar ? $book->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
                                                                         </a>
                                                                     </div>
                                                                 @endfor
                                                             </div>
                                                         </div>
                                                     @elseif ($countOwnerLatest > 0)
-                                                        @for ($j = 0; $j < $relatedBooks[$i]->owners->count(); $j++)
-                                                            <div class="owner" id="{{ 'user-' . $relatedBooks[$i]->owners[$j]->id }}">
-                                                                <a href="{{ route('user', $relatedBooks[$i]->owners[$j]->id) }}" title="{{ $relatedBooks[$i]->owners[$j]->name }}">
-                                                                    <img src="{{ $relatedBooks[$i]->owners[$j]->avatar ? $relatedBooks[$i]->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
+                                                        @for ($j = 0; $j < $book->owners->count(); $j++)
+                                                            <div class="owner" id="{{ 'user-' . $book->owners[$j]->id }}">
+                                                                <a href="{{ route('user', $book->owners[$j]->id) }}" title="{{ $book->owners[$j]->name }}">
+                                                                    <img src="{{ $book->owners[$j]->avatar ? $book->owners[$j]->avatar : asset(config('view.image_paths.user') . '1.png') }}" class="owner-avatar-icon" onerror="this.onerror=null;this.src={{ config('view.links.avatar') }};">
                                                                 </a>
                                                             </div>
                                                         @endfor
@@ -531,11 +531,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endfor
+                                @endforeach
                             </div>
-                            @for ($i = 3; $i < $relatedBooks->count(); $i++)
+                            @foreach($relatedBooks as $book)
                                 @include('layout.section.modal')
-                            @endfor
+                            @endforeach
                         @endif
                     </div>
                 </div>
