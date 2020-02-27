@@ -89,7 +89,7 @@
                                                 <img src="{{ $book->medias->count() > 0 ? asset(config('view.image_paths.book') . $book->medias[0]->path) : asset(config('view.image_paths.book') . 'default.jpg') }}" alt="book" class="primary" />
                                             </a>
                                             <div class="quick-view">
-                                                <a class="action-view" href="#" data-target="#productModal{{ $book->id }}" data-toggle="modal" title="Quick View">
+                                                <a class="action-view show-book-modal" href="#" data-url="{{ route('modal-book', $book->id) }}" title="Quick View">
                                                     <i class="fa fa-search-plus"></i>
                                                 </a>
                                             </div>
@@ -257,11 +257,6 @@
         </div>
     </div>
 </div>
-<!-- shop-main-area-end -->
-@foreach ($books as $book)
-    @include('layout.section.modal')
-@endforeach
-
 @endsection
 
 @section('footer')

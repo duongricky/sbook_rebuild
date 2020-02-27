@@ -462,7 +462,7 @@
                                             @endif
                                         </div>
                                         <div class="quick-view">
-                                            <a class="action-view" href="#" data-target="#productModal{{ $bookRelated->id }}" data-toggle="modal" title="Quick View">
+                                            <a class="action-view show-book-modal" href="#" data-url="{{ route('modal-book', $book->id) }}" data-toggle="modal" title="Quick View">
                                                 <i class="fa fa-search-plus"></i>
                                             </a>
                                         </div>
@@ -533,9 +533,6 @@
                                     </div>
                                 @endforeach
                             </div>
-                            @foreach($relatedBooks as $bookRelated)
-                                @include('layout.section.modal', ['book' => $bookRelated])
-                            @endforeach
                         @endif
                     </div>
                 </div>

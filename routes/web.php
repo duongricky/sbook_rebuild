@@ -26,6 +26,7 @@ Route::group(['middleware' => 'locale'], function () {
     Route::get('login/framgia/callback', 'Auth\LoginController@handleProviderCallback');
 
     Route::group(['namespace' => 'User'], function () {
+        Route::get('getModalBook/{id}', 'BookController@getModalBook')->name('modal-book');
         Route::resource('books', 'BookController');
         Route::get('books/category/{slug}', 'BookController@getBookCategory')->name('book.category');
         Route::get('books/office/{slug}', 'BookController@getBookOffice')->name('book.office');

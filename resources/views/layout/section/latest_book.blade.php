@@ -7,7 +7,7 @@
                         <img src="{{ asset(config('view.image_paths.book') . ($latestBook[$i]->medias->count() > 0 ? $latestBook[$i]->medias[0]->path : 'default.jpg')) }}" alt="book" class="primary" />
                     </a>
                     <div class="quick-view">
-                        <a class="action-view" href="#" data-target="#productModal{{ $latestBook[$i]->id }}" data-toggle="modal" title="Quick View">
+                        <a class="action-view show-book-modal" href="#" data-url="{{ route('modal-book', $latestBook[$i]->id) }}" data-toggle="modal" title="Quick View">
                             <i class="fa fa-search-plus"></i>
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                         <img src="{{ $latestBook[++$i]->medias->count() > 0 ? asset(config('view.image_paths.book') . $latestBook[$i]->medias[0]->path) : asset(config('view.image_paths.book') . 'default.jpg') }}" alt="book" class="primary" />
                     </a>
                     <div class="quick-view">
-                        <a class="action-view" href="#" data-target="#productModal{{ $latestBook[$i]->id }}" data-toggle="modal" title="Quick View">
+                        <a class="action-view show-book-modal" href="#" data-url="{{ route('modal-book', $latestBook[$i]->id) }}" data-toggle="modal" title="Quick View">
                             <i class="fa fa-search-plus"></i>
                         </a>
                     </div>
