@@ -14,7 +14,7 @@ class BookCategoryEloquentRepository extends AbstractEloquentRepository implemen
 
     public function storeBookCate($book_id, $data = [])
     {
-        foreach ($data['category'] as $category) {
+        foreach ($data['categories'] as $category) {
             $data['category_id'] = $category;
             $data['book_id'] = $book_id;
             $this->model()->create($data);
