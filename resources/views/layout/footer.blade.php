@@ -37,14 +37,7 @@
                         @endif
                     </li>
                     <li>
-                        @if (isset($emails) && count($emails) > 0)
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>{{ $emails[0]['value'] }}
-                        @endif
-                    </li>
-                    <li>
-                        @if (isset($contacts) && count($contacts) > 0)
-                            <i class="fa fa-phone" aria-hidden="true"></i>{{ $contacts[0]['value'] }}
-                        @endif
+                        {{ config('view.footer.by') }}
                     </li>
                 </ul>
             </div>

@@ -103,7 +103,7 @@
     <div class="header-mid-area ptb-40">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
                     <div class="header-search">
                         {!! Form::open([
                             'route' => 'search',
@@ -134,11 +134,10 @@
                     </div>
                     <div id="search-suggest" class="s-suggest"></div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="logo-area text-center logo-xs-mrg">
                         <a href="{{ asset('/') }}">
                             <img src="{{ asset(config('view.image_paths.logo') . 'logo.png') }}" alt="logo" class="logo logo1"/>
-                            <img src="{{ asset(config('view.image_paths.logo') . 'logo2.png') }}" alt="logo" class="logo">
                         </a>
                     </div>
                 </div>

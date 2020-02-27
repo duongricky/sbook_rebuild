@@ -114,7 +114,8 @@ return [
     'links' => [
         'feedback' => 'https://docs.google.com/forms/d/e/1FAIpQLSeVwREJ9vbPHB3LGDudz9ieePp3Z9xJG96e48_5i9VQj4r5zQ/viewform',
         'instruction' => '',
-        'banner' => 'https://viblo.asia/announcements/gioi-thieu-state-of-chain-tieu-diem-hackathon-meet-up-blockchain-nam-2018-YWOZrpmp5Q0',
+        'banner1' => '/storage/img/banner/banner1.gif',
+        'banner2' => '/storage/img/banner/banner2.jpg',
         'club' => 'https://www.facebook.com/groups/framgia.reading.book.club/',
         'wsm' => '.sun-asterisk.vn/',
         'http' => 'http://',
@@ -152,5 +153,8 @@ return [
     ],
 
     'link' => config('app.url') . '/books/',
+    'footer' => [
+        'by' => '© 2020 By Sun-asterisk - Talent Development Office - Vietnam Education Unit - All rights reserved',
+    ],
 
 ];
