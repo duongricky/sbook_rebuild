@@ -1,5 +1,5 @@
-# fbook_api
-Fbook - for sharing and discussing about book
+# S*Book_api
+S*Book - for sharing and discussing about book
 
 ## Required
 
