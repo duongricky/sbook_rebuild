@@ -116,13 +116,13 @@ class OptionTableSeeder extends Seeder
             ],
             [
                 'key' => 'app_text',
-                'value' => 'Fbook',
+                'value' => 'S*Book',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
             [
                 'key' => 'text_banner',
-                'value' => 'Fbook',
+                'value' => 'S*Book',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
@@ -140,7 +140,7 @@ class OptionTableSeeder extends Seeder
             ],
             [
                 'key' => 'text_banner',
-                'value' => 'Framgia',
+                'value' => 'Sun Asterisk',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],

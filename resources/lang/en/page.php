@@ -6,7 +6,7 @@ return [
     'submit' => 'Submit',
     'cancel' => 'Cancel',
     'reset' => 'Reset',
-    'dashboard' => 'Fbook Dashboard',
+    'dashboard' => 'S*Book Dashboard',
     'search' => 'Enter your keyword here...',
     'noOwner' => 'You can not borrow your books',
     'errBio'=> 'You can\'t not update this bio',

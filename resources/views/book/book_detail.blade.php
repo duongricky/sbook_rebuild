@@ -451,7 +451,7 @@
                                 @foreach($relatedBooks as $bookRelated)
                                     <div class="product-wrapper">
                                         <div class="product-img">
-                                            @if ($book->medias->count() > 0)
+                                            @if ($bookRelated->medias->count() > 0)
                                                 <a href="{{ route('books.show', $bookRelated->slug . '-' . $bookRelated->id) }}">
                                                     <img src="{{ asset(config('view.image_paths.book') . $bookRelated->medias[0]->path) }}" alt="book" class="primary"/>
                                                 </a>

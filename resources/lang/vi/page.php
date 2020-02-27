@@ -7,7 +7,7 @@ return [
     'cancel' => 'Hủy bỏ',
     'reset' => 'Làm lại',
     'search' => 'Nhập vào từ khóa...',
-    'dashboard' => 'Quản trị Fbook',
+    'dashboard' => 'Quản trị S*Book',
     'noOwner' => 'Bạn không thể mượn sách của mình',
     'errBio'=> 'Bạn không thể cập nhận giới thiệu này',
     'succBio'=> 'Cập nhật giới thiệu thành công',
