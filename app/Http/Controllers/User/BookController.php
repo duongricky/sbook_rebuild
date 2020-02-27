@@ -133,9 +133,9 @@ class BookController extends Controller
             $request->merge(['book_id' => $book->id]);
             //save bookmeta
             $this->bookmeta->store($request->all());
-            //save category
-            if ($request->has('category')) {
-                $this->bookCategory->store($request->all());
+            //save categories
+            if ($request->has('categories')) {
+                $this->bookCategory->storeBookCate($book->id, $request->all());
             }
             //create image
             $this->media->store($request->all());

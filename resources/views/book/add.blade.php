@@ -139,7 +139,7 @@
                                 <div class="col-md-4">
                                     <label>
                                         {!! Form::checkbox(
-                                            'category[]',
+                                            'categories[]',
                                             $category->id
                                         ) !!}
                                         {{ $category->name }}
