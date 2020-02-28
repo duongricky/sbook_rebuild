@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => 'locale'], function () {
     Route::get('/', 'HomeController@index')->name('home');

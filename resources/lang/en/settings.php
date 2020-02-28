@@ -184,7 +184,7 @@ return [
         'workspace' => 'Workspace',
         'email' => 'Email:',
         'bio' => 'Bio',
-        'bioTitle' => 'introduction',
+        'bioTitle' => 'Introduction',
         'favorite' => 'Favorite books',
     ],
 
