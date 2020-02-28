@@ -12,6 +12,8 @@
         @include('layout.style')
 
         {{ Html::script('assets/js/vendor/modernizr-2.8.3.min.js') }}
+        @routes()
+
     </head>
     <body>
         @include('layout.header')

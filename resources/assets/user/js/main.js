@@ -324,9 +324,9 @@
     }
 
     $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
 
     $(document).on('click', '.btn-share', function() {
@@ -341,14 +341,14 @@
                 var id = obj.attr('data-id');
                 $.ajax({
                     type: 'POST',
-                    url: '/books/sharing/' + id,
-                    data: { id: id },
+                    url: route('user.sharing', {id: id}),
                 })
                 .done(function(res) {
-                    var html = '<div class="reviews-actions" id="user-' + res.id + '">';
-                    html += '<a href="/users/' + res.id + '" title="' + res.name + '">';
-                    html += '<img src="' + res.avatar + '" class="mg-thumbnail avatar-icon"></a></div>';
-                    $('.owner-list').append(html);
+                    var html = '<div class="owner mr-6" id="user-' + res.id + '">';
+                    html += '<a href="/users/' + res.id + '" title="' + res.name + "(" + res.office + ')">';
+                    html += '<img src="' + res.avatar + '" class="owner-avatar-icon"></a>'
+                        + '<span class="owner-office">' + res.office + '</span>' + '</div>';
+                    $('.owner-avatar').append(html);
                     obj.html(textRemoveOwner);
                     obj.removeClass('btn-share').addClass('btn-remove-owner');
                     $('.btn-borrow').addClass('disabled');
@@ -373,8 +373,7 @@
                 var auth = obj.attr('owner');
                 $.ajax({
                     type: 'POST',
-                    url: '/books/remove-owner/' + id,
-                    data: { id: id },
+                    url: route('user.remove-owner', {id: id}),
                 })
                 .done(function(res) {
                     $('#user-' + res).remove();

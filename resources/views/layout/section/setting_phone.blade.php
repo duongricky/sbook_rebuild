@@ -30,10 +30,10 @@
                         </div>
                         <p>
                             <div id="display-radio" class="display-radio"></div>
-                            {!! Form::radio('phone', 1, ($displayPhone->value == 1)?1:0,  ['class' => 'setting-phone']) !!}
-                            <label class="gender">{{ __('page.public') }}</label>
-                            {!! Form::radio('phone', 0, ($displayPhone->value == 0)?1:0, ['class' => 'setting-phone']) !!}
-                            <label class="gender">{{ __('page.private') }}</label>
+                            {!! Form::radio('phone', 1, ($displayPhone->value == 1)?1:0,  ['class' => 'setting-phone', 'id' => 'public']) !!}
+                            <label class="gender" for="public">{{ __('page.public') }}</label>
+                            {!! Form::radio('phone', 0, ($displayPhone->value == 0)?1:0, ['class' => 'setting-phone', 'id' => 'private']) !!}
+                            <label class="gender" for="private">{{ __('page.private') }}</label>
                         </p>
                     @else
                         <div id="phone-add">
@@ -46,10 +46,10 @@
                         </div>
                         <p>
                             <div id="display-radio"></div>
-                            {!! Form::radio('phone', 1, true, ['class' => 'setting-phones']) !!}
-                            <label class="gender">{{ __('page.public') }}</label>
-                            {!! Form::radio('phone', 0, false, ['class' => 'setting-phones']) !!}
-                            <label class="gender">{{ __('page.private') }}</label>
+                            {!! Form::radio('phone', 1, true, ['class' => 'setting-phones', 'id' => 'public']) !!}
+                            <label class="gender" for="public">{{ __('page.public') }}</label>
+                            {!! Form::radio('phone', 0, false, ['class' => 'setting-phones', 'id' => 'private']) !!}
+                            <label class="gender" for="private">{{ __('page.private') }}</label>
                         </p>
                     @endif
                     <div class="footer">
@@ -63,11 +63,11 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="language">
                     {!! Form::radio('language', 'en',
-                        $language->value == 'en' ? true : '', ['class' => 'setting-phones']) !!}
-                    {!! Form::label('language', __('settings.lang.en'), ['class' => 'language']) !!}
+                        $language->value == 'en' ? true : '', ['class' => 'setting-phones', 'id' => 'en']) !!}
+                    {!! Form::label('en', __('settings.lang.en'), ['class' => 'language']) !!}
                     {!! Form::radio('language', 'vi',
-                        $language->value == 'vi' ? true : '', ['class' => 'setting-phones']) !!}
-                    {!! Form::label('language', __('settings.lang.vi'), ['class' => 'language']) !!}
+                        $language->value == 'vi' ? true : '', ['class' => 'setting-phones', 'id' => 'vi']) !!}
+                    {!! Form::label('vi', __('settings.lang.vi'), ['class' => 'language']) !!}
                     <br><br>
                     <input type="button" class="btn btn-info save-language" value="{{ __('page.save') }}" />
                     <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('page.close') }}</button>

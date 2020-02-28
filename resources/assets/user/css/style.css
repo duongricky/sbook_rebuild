@@ -899,6 +899,7 @@ body {
 
 .single-banner {
     display: flex;
+    justify-content: center;
 }
 .single-banner .banner-img {
     margin-right: 12px;

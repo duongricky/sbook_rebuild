@@ -191,8 +191,7 @@ class UserController extends Controller
             ];
             // save book office in table bookmeta
             $bookOffice = $this->book->find((int)$id, $with)->office;
-            $userOffice = Auth::user()->office;
-
+            $userOffice = Auth::user()->office->name;
             if (!$userOffice) {
                 $userOffice = 'Hanoi Office';
             }
@@ -214,6 +213,7 @@ class UserController extends Controller
             //get avatar user
             $data = Auth::user()->only('id', 'name', 'avatar');
             $data['avatar'] = $data['avatar'];
+            $data['office'] = $userOffice;
 
             if (is_null($data['avatar'])) {
                 $data['avatar'] = asset(config('view.image_paths.user') . '1.png');
