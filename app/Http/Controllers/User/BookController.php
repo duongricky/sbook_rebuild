@@ -20,6 +20,7 @@ use App\Repositories\Contracts\NotificationRepository;
 use Session;
 use App\Events\ViewBook;
 use Event;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BookController extends Controller
 {
@@ -387,5 +388,21 @@ class BookController extends Controller
         }
 
         return response()->json(['status' => $result]);
+    }
+
+    public function getModalBook($id) {
+        $with = [
+            'medias',
+            'owners',
+        ];
+        try {
+            $book = $this->book->find($id, $with);
+
+            return view('layout.section.modal', compact('book'));
+        } catch (NotFoundHttpException $e) {
+            return response()->json(false);
+        }
+
+
     }
 }

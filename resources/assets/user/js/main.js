@@ -496,15 +496,7 @@
             .done(function(res) {
                 $(e).attr('value', false);
                 $(e).html(res);
-                var star = $('.rating');
-                star.each(function () {
-                    var rating = $(this).data('rating');
-                    $(this).barrating({
-                        theme: 'fontawesome-stars-o',
-                        initialRating: rating,
-                        readonly: true,
-                    });
-                });
+                showStart($('.rating'));
                 $('.book-status#' + status + '0').show();
                 $('.loader').hide();
             })
@@ -519,15 +511,7 @@
             .done(function(res) {
                 $(e).attr('value', false);
                 $(e).html(res);
-                var star = $('.rating');
-                star.each(function () {
-                    var rating = $(this).data('rating');
-                    $(this).barrating({
-                        theme: 'fontawesome-stars-o',
-                        initialRating: rating,
-                        readonly: true,
-                    });
-                });
+                showStart($('.rating'));
                 $('.book-status#' + status + '0').show();
             })
             .fail(function() {
@@ -723,26 +707,6 @@
         }, 1000);
     })
 
-    $(function() {
-        var star = $('.rating');
-        star.each(function () {
-            var rating = $(this).data('rating');
-            $(this).barrating({
-                theme: 'fontawesome-stars-o',
-                initialRating: rating,
-                readonly: true,
-            });
-       });
-
-       var url = window.location.href;
-       var arr = parseInt(url.split('=')[1]);
-       if (arr > 0) {
-           $('html, body').animate({
-               scrollTop: $('#reviews').offset().top - 180
-           }, 1000);
-       }
-    });
-
     $(window).on('load', function(event) {
         $('#myModal').modal('show');
     });
@@ -785,15 +749,7 @@
         })
         .success(function(data) {
             $('#sharing').html(data);
-            var star = $('.rating');
-            star.each(function () {
-                var rating = $(this).data('rating');
-                $(this).barrating({
-                    theme: 'fontawesome-stars-o',
-                    initialRating: rating,
-                    readonly: true,
-                });
-            });
+            showStart($('.rating'));
         });
     }
 
@@ -909,15 +865,7 @@
         })
         .done(function(res) {
             $(status).html(res);
-            var star = $('.rating');
-            star.each(function () {
-                var rating = $(this).data('rating');
-                $(this).barrating({
-                    theme: 'fontawesome-stars-o',
-                    initialRating: rating,
-                    readonly: true,
-                });
-            });
+            showStart($('.rating'));
         })
         .fail(function() {
                 //
@@ -991,6 +939,36 @@
                 }
             });
         });
+
+        $('body').on('click', '.show-book-modal', function (e) {
+            e.preventDefault();
+            const url = $(this).attr('data-url');
+            $.ajax({
+                url,
+                success: function (res) {
+                    $('#modal-content').html(res);
+                    showStart($('.rating'));
+                    $('#book-modal').modal('show');
+                },
+                error: function (xhr, status, error) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (xhr.status === config.STATUS.CLIENT.NOT_FOUND) {
+                        messagePopup(response.message, 'warning', 'warning');
+                    }
+                }
+            });
+        });
+    });
+
+    $(function() {
+        showStart($('.rating'));
+        var url = window.location.href;
+        var arr = parseInt(url.split('=')[1]);
+        if (arr > 0) {
+            $('html, body').animate({
+                scrollTop: $('#reviews').offset().top - 180
+            }, 1000);
+        }
     });
 
 })(jQuery);
@@ -1007,5 +985,16 @@
             type: type,
             icon: icon,
             button: button
+        });
+    }
+
+    var showStart = ele => {
+        ele.each( function () {
+            var rating = $(this).data('rating');
+            $(this).barrating({
+                theme: 'fontawesome-stars-o',
+                initialRating: rating,
+                readonly: true,
+            });
         });
     }

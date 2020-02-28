@@ -25,6 +25,11 @@
             @section('footer')
                 @show
 
+        <div class="modal fade" id="book-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content" id="modal-content"></div>
+            </div>
+        </div>
         @include('layout.script')
             @section('script')
                 @show
