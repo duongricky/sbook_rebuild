@@ -100,13 +100,13 @@
             </div>
         </div>
     </div>
-    <div class="header-mid-area ptb-40">
+    <div class="header-mid-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
                     <div class="logo-area logo-xs-mrg">
                         <a href="{{ asset('/') }}">
-                            <img src="{{ asset(config('view.image_paths.logo') . 'logo.png') }}" alt="logo" class="logo logo1"/>
+                            <img src="{{ asset(config('view.image_paths.logo') . 'logo1.png') }}" alt="logo" class="logo logo1"/>
                         </a>
                     </div>
                 </div>

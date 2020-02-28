@@ -67,6 +67,7 @@
         margin: 0,
         autoplay: false,
         nav: true,
+        autoHeight: true,
         dots: true,
         loop: true,
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],

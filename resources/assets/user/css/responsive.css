@@ -209,17 +209,17 @@
     }
     .category-menu {
         padding: 0 0 20px 15px;
-    } 
-    
-    
-    
-    
-    
+    }
 }
 
 
 /* Tablet desktop :768px. */
-
+@media (min-width: 768px) {
+    .header-mid-area .container .row {
+        display: flex;
+        align-items: center;
+    }
+}
 @media (min-width: 768px) and (max-width: 991px) {
     .slider-content.slider-animated-1.text-center {
         text-align: left;
@@ -494,14 +494,15 @@
     .home-3 .mobile-menu-area .mean-nav ul#nav {
         height: 170px;
     }
-    
-    
 }
 
 
 /* small mobile :320px. */
 
 @media (max-width: 767px) {
+    .header-mid-area .container .row {
+        display: block;
+    }
     .category-menu.category-menu-1 {
         display: none;
     }

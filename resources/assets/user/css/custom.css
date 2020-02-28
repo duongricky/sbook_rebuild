@@ -315,6 +315,9 @@ a#scrollUp i {
     text-align: center;
     line-height: 20px;
 }
+.header-mid-area {
+    padding: 10px 0 15px 0;
+}
 
 .header-mid-area .my-cart ul li > a > i {
     padding-right: 12px;
@@ -618,7 +621,7 @@ label.custom-file-label.col-10.ml-3::after {
 }
 
 img.logo {
-    width: 162px;
+    width: 210px;
 }
 
 .product-info-main .page-title h1, .product-attribute span {
@@ -670,12 +673,6 @@ img.logo {
     color: #ffc120;
 }
 
-img.logo.logo1 {
-    position: relative;
-    left: 30px;
-    top: -10px;
-}
-
 img.logo-footer {
     width: 120px;
     margin-bottom: 2px;
@@ -687,14 +684,6 @@ img.logo-footer {
 a.btn.btn-info.show-more {
     float: right;
     margin-top: 8px;
-}
-
-.header-search {
-    margin-top: 35px;
-}
-
-img.logo {
-    margin-top: -25px;
 }
 
 .section-title-3 a {

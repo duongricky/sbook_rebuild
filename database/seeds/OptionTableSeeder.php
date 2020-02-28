@@ -104,7 +104,7 @@ class OptionTableSeeder extends Seeder
             ],
             [
                 'key' => 'app_text',
-                'value' => 'AC',
+                'value' => 'AC-Staff',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
@@ -153,18 +153,6 @@ class OptionTableSeeder extends Seeder
             [
                 'key' => 'text_banner',
                 'value' => 'S*Book',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'key' => 'text_banner',
-                'value' => 'PHP Education',
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ],
-            [
-                'key' => 'text_banner',
-                'value' => 'We make it awesome!',
                 'created_at' => new DateTime,
                 'updated_at' => new DateTime,
             ],
