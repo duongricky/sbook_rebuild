@@ -26,7 +26,7 @@
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade show active in" id="bottom-justified-divided-tab1">
+                <div class="tab-pane fade active in" id="bottom-justified-divided-tab1">
                     <div class="row">
                         <div class="col-md-5 col-md-offset-1">
                             <p>

@@ -488,9 +488,6 @@
         if ($(e).attr('value') == 'true') {
             $.ajax({
                 url: '/my-profile/' + status + '/' + $('#userId').val(),
-                beforeSend: function() {
-                    $('.loader').show();
-                },
                 method:'POST',
             })
             .done(function(res) {
@@ -498,7 +495,6 @@
                 $(e).html(res);
                 showStart($('.rating'));
                 $('.book-status#' + status + '0').show();
-                $('.loader').hide();
             })
             .fail(function() {
                 //
@@ -896,13 +892,10 @@
             url,
             method: 'POST',
             data: {bio: text},
-            beforeSend: function () {
-                $('.loader').show();
-            },
             success: function (res) {
                 if (res.status) {
-                    $('#text-bio').html(text);
-                    $('#input-bio').html(text);
+                    $('#text-bio').text(text);
+                    $('#input-bio').text(text);
                     messagePopup(res.msg, 'success', 'success');
                 } else {
                     messagePopup(res.msg, 'warning', 'warning');
@@ -912,12 +905,10 @@
                 var response = JSON.parse(xhr.responseText);
                 if (xhr.status === config.STATUS.CLIENT.PAYMENT_REQ) {
                     messagePopup(response.errors.bio[0], 'error', 'error');
-                    $('.loader').hide();
                 }
             }
         }).done(function () {
             $('#form-bio').css('display', 'none');
-            $('.loader').hide();
         });
     });
 
