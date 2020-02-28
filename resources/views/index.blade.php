@@ -94,14 +94,12 @@
         </div>
     </div>
 </div>
-<div class="banner-area-5 mtb-65">
+<div class="banner-static-area bg ptb-60">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="banner-img-2">
-                    <a href="{{ asset(config('view.links.banner')) }}">
-                        <img src="{{ bannerImg() }}" alt="banner" />
-                    </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="banner-shadow-hover xs-mb">
+                    <img src="{{ asset(config('view.links.banner1')) }}" width="100%" />
                 </div>
             </div>
         </div>
@@ -144,9 +142,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="banner-shadow-hover xs-mb">
-                    @if (isset($bannerBooks))
-                        <img src="{{ asset(config('view.image_paths.banner') . $bannerBooks->value) }}" alt="banner" width="100%" />
-                    @endif
+                    <img src="{{ asset(config('view.links.banner2')) }}" width="100%" />
                 </div>
             </div>
         </div>

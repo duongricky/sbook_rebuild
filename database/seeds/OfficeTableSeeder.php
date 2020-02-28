@@ -27,7 +27,7 @@ class OfficeTableSeeder extends Seeder
                 'updated_at' => new DateTime,
             ],
             [
-                'name' => '	HCMC Office',
+                'name' => 'HCMC Office',
                 'address' => 'HCM',
                 'wsm_workspace_id' => '3',
                 'created_at' => new DateTime,
