@@ -5,7 +5,7 @@
     <div class="banner-area banner-res-large ptb-35">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="single-banner">
                         <div class="banner-img">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="single-banner">
                         <div class="banner-img">
                             <i class="fa fa-book" aria-hidden="true"></i>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 hidden-sm col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="single-banner">
                         <div class="banner-img">
                             <i class="fa fa-comment-o" aria-hidden="true"></i>
@@ -35,19 +35,6 @@
                         <div class="banner-text">
                             <h4>{{ __('settings.default.totalReview') }}</h4>
                             <p>{{ $totalReview }} {{__('settings.default.reviews') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <div class="single-banner mrg-none-xs">
-                        <div class="banner-img">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                        </div>
-                        <div class="banner-text">
-                            <h4>{{ __('settings.default.help') }}</h4>
-                            @if (isset($contacts) && count($contacts) > 0)
-                                <p>{{ __('settings.default.call') }} : {{ $contacts[0]['value'] }}</p>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -236,15 +223,15 @@
                 <div class="link-follow">
                     <ul>
                         @if (isset($apps) && count($apps) > 0)
-                        @foreach ($apps as $key => $app)
-                        @if (isset($textApps[$key]))
-                        <li>
-                            <a href="{{ config('view.links.http') . $textApps[$key]['value'] . config('view.links.wsm') }}" target="_blank">
-                                <img src="{{ asset(config('view.image_paths.logo') . $app->value) }}" data-toggle="tolltip" title={{ $textApps[$key]['value'] }} alt="WSM"/>
-                            </a>
-                        </li>
-                        @endif
-                        @endforeach
+                            @foreach ($apps as $key => $app)
+                                @if (isset($textApps[$key]))
+                                    <li>
+                                        <a href="{{ config('view.links.http') . $textApps[$key]['value'] . config('view.links.wsm') }}" target="_blank">
+                                            <img src="{{ asset(config('view.image_paths.logo') . $app->value) }}" data-toggle="tolltip" title={{ $textApps[$key]['value'] }} alt="WSM"/>
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
                         @endif
                     </ul>
                 </div>
