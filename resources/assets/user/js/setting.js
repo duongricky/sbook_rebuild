@@ -14,8 +14,10 @@
         if (($('#phone_setting').val()) == '') {
             $('.success-phone').html('<p id="error-phone">' + textError + '</p>');
         } else {
+            let phone = $('#phone_setting').val();
+            phone = phone.trim(phone);
             $.ajax({
-                url: '/settings/' + $('#phone_setting').val() + '/' + $('.setting-phone:checked').val(),
+                url: route('save-setting', {phone: phone, display: $('.setting-phone:checked').val()}),
                 method: 'POST',
                 success: function(res) {
                     if (res.data == 0) {

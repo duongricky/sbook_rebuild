@@ -38,7 +38,7 @@ return [
         'less' => 'Show less',
     ],
     'club' => 'Reading Book Club',
-    'app' => 'Framgia Apps',
+    'app' => 'Sun Asterisk Apps',
     'twitter' => 'Perhaps they were right in putting love into books… Perhaps it could not live anywhere else.',
     'rate' => 'Rate',
     'home' => 'Home',

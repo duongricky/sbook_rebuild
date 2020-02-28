@@ -514,7 +514,6 @@ ul.list-unstyled.social-list i {
 
 .owner-avatar .owner {
     display: block;
-    position: relative;
     margin-right: 3px;
 }
 
@@ -1094,7 +1093,6 @@ a.view-all {
 
 .rating-summary p.share-by {
     margin: 14px 12px 0 0;
-    float: left;
 }
 
 .product-add-form form a.disabled {
@@ -1147,10 +1145,6 @@ a.view-all {
     float: right;
     font-size: 17px;
     line-height: 30px;
-}
-
-.owner-avatar {
-    float: left;
 }
 
 .owl-carousel .owl-item img.owner-avatar-icon, img.owner-avatar-icon {
@@ -1552,7 +1546,7 @@ button.btn.btn-white.btn-cancel {
 
 #main h4 {
     padding:1px;
-    color: #acacac;
+    color: #7b7b7b;
     font-size:12pt;
     font-weight:100;
     text-transform:uppercase;
@@ -1561,8 +1555,9 @@ button.btn.btn-white.btn-cancel {
 .infobox{
     background: #e4e63269;
     border: 1px solid #f7f8e0;
-    padding: 5px;
+    padding: 8px;
     font-size: 12px;
+    border-radius: 5px;
 }
 
 .setting-phones input[type=radio] {
@@ -1685,7 +1680,9 @@ label.gender {
 }
 
 .infobox p {
-    color:gray;
+    color: #4a4a4a;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
 #phone_setting {
@@ -1727,18 +1724,15 @@ img.picture {
 }
 
 span.owner-office {
-    position: absolute;
-    bottom: -13px;
+    display: block;
     background-color: #c68c53;
     font-size: 10px;
     color: white;
     padding: 3px 3px;
-    left: 0px;
     font-weight: 700;
     border-radius: 6px;
     line-height: initial;
     border: 1px solid #ccc;
-    width: 32px;
 }
 
 .modal-description p {
@@ -1764,6 +1758,7 @@ span.owner-office {
 
 .ofl-x {
     overflow: -webkit-paged-x;
+    display: flex;
 }
 
 .pt-0 {

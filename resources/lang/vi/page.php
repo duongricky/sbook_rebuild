@@ -38,7 +38,7 @@ return [
         'less' => 'Ẩn bớt',
     ],
     'club' => 'Câu lạc bộ đọc sách',
-    'app' => 'Ứng dụng của Framgia',
+    'app' => 'Ứng dụng của Sun Asterisk',
     'twitter' => 'Sách không đơn thuần chỉ là những trang giấy mà trong đó còn chứa đựng một thế giới mà con người luôn khao khát được khám phá.',
     'rate' => 'Bình chọn',
     'home' => 'Trang chủ',

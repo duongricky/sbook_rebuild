@@ -37,8 +37,8 @@ Route::group(['middleware' => 'locale'], function () {
         Route::group(['middleware' => 'auth'], function () {
             Route::resource('/books/{slug}/review', 'ReviewBookController');
             Route::resource('/review/{id}/vote', 'VoteController');
-            Route::post('/books/sharing/{id}', 'UserController@sharingBook');
-            Route::post('/books/remove-owner/{id}', 'UserController@removeOwner');
+            Route::post('/books/sharing/{id}', 'UserController@sharingBook')->name('user.sharing');
+            Route::post('/books/remove-owner/{id}', 'UserController@removeOwner')->name('user.remove-owner');
             Route::post('/books/borrowing/{id}', 'UserController@borrowingBook');
             Route::post('/books/cancelBorrowing/{bookId}', 'UserController@cancelBorrowing');
             Route::get('/my-profile', 'UserController@myProfile')->name('my-profile');
@@ -56,7 +56,7 @@ Route::group(['middleware' => 'locale'], function () {
             Route::post('/notification-update', 'NotificationController@updateNotification');
             Route::get('/notifications/viewed', 'NotificationController@markRead')->name('markread');
             Route::post('books/returning/{id}', 'UserController@returnBook')->name('return-book');
-            Route::post('/settings/{phone}/{display}', 'SettingController@postSaveSetting');
+            Route::post('/settings/{phone}/{display}', 'SettingController@postSaveSetting')->name('save-setting');
             Route::post('/setting/display', 'SettingController@postSetting')->name('settings');
             Route::post('/setting-phone/{request}/{radio}', 'SettingController@postPhoneSetting');
             Route::post('language/{language}', 'SettingController@postLanguage')->name('setting.language');

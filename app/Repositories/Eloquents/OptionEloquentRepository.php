@@ -22,42 +22,15 @@ class OptionEloquentRepository extends AbstractEloquentRepository implements Opt
 
     public function setting()
     {
-        if (!\Cache::has('textFooters')) {
-            \Cache::forever('textFooters', $this->model()->where(['key' => 'text_footer'])->get());
-        }
-        if (!\Cache::has('banners')) {
-            \Cache::forever('banners', $this->model()->where(['key' => 'banner'])->get());
-        }
-        if (!\Cache::has('bannerBooks')) {
-            \Cache::forever('bannerBooks', $this->model()->where(['key' => 'banner_book'])->first());
-        }
-        if (!\Cache::has('apps')) {
-            \Cache::forever('apps', $this->model()->where(['key' => 'app'])->get());
-        }
-        if (!\Cache::has('textBanners')) {
-            \Cache::forever('textBanners', $this->model()->where(['key' => 'text_banner'])->get());
-        }
-        if (!\Cache::has('textApps')) {
-            \Cache::forever('textApps', $this->model()->where(['key' => 'app_text'])->get());
-        }
-        if (!\Cache::has('contacts')) {
-            \Cache::forever('contacts', $this->model()->where(['key' => 'contact'])->get());
-        }
-        if (!\Cache::has('address')) {
-            \Cache::forever('address', $this->model()->where(['key' => 'address'])->get());
-        }
-        if (!\Cache::has('emails')) {
-            \Cache::forever('emails', $this->model()->where(['key' => 'email'])->get());
-        }
-        $data['textFooters'] = \Cache::get('textFooters');
-        $data['banners'] = \Cache::get('banners');
-        $data['bannerBooks'] = \Cache::get('bannerBooks');
-        $data['apps'] = \Cache::get('apps');
-        $data['textBanners'] = \Cache::get('textBanners');
-        $data['textApps'] = \Cache::get('textApps');
-        $data['contacts'] = \Cache::get('contacts');
-        $data['address'] = \Cache::get('address');
-        $data['emails'] = \Cache::get('emails');
+        $data['textFooters'] = $this->model()->where(['key' => 'text_footer'])->get();
+        $data['banners'] = $this->model()->where(['key' => 'banner'])->get();
+        $data['bannerBooks'] = $this->model()->where(['key' => 'banner_book'])->first();
+        $data['apps'] = $this->model()->where(['key' => 'app'])->get();
+        $data['textBanners'] = $this->model()->where(['key' => 'text_banner'])->get();
+        $data['textApps'] = $this->model()->where(['key' => 'app_text'])->get();
+        $data['contacts'] = $this->model()->where(['key' => 'contact'])->get();
+        $data['address'] = $this->model()->where(['key' => 'address'])->get();
+        $data['emails'] = $this->model()->where(['key' => 'email'])->get();
 
         return $data;
     }

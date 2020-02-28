@@ -236,7 +236,6 @@
                                                     </a>
                                                 @endif
                                                  <a id="chartUserEvaluationBt" data-toggle="modal" href="#chartUserEvaluationModel"><i class="fa fa-pie-chart"></i></a>
-                                                 <a href="#"><i class="fa fa-envelope-o"></i></a>
                                             </div>
                                             <div class="product-addto-links-text">
                                                 <p class="more hideContent">{!! strip_tags(($book->description)) !!}</p>
